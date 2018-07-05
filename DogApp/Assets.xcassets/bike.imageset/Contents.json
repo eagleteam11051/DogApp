@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon_thang.png",
+      "filename" : "36664488_618794915171444_4117890029223673856_n.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "36613388_618794918504777_3612182717023649792_n.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "36663288_618794905171445_5772082179173515264_n.png",
       "scale" : "3x"
     }
   ],

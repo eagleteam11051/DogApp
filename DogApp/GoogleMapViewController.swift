@@ -45,7 +45,7 @@ class GoogleMapViewController: UIViewController {
             market.snippet = "Dong 2"
            market.icon = UIImage(named: "bike")
             market.map = mapView
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: Selector("back"))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: Selector(("back")))
             
 //            let navi = storyboard?.instantiateViewController(withIdentifier: "navi")
 //

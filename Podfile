@@ -7,6 +7,9 @@ target 'DogApp' do
   pod 'Alamofire'
 pod 'GoogleMaps'
     pod 'GooglePlaces'
+    pod 'Firebase/Core'
+    pod 'SCLAlertView'
+    pod 'Firebase/Messaging'
   # Pods for DogApp
 
 end

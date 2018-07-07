@@ -43,9 +43,17 @@ class GoogleMapViewController: UIViewController {
             let market = GMSMarker(position: (currentDestination?.location)!)
             market.title = "test2"
             market.snippet = "Dong 2"
+           market.icon = UIImage(named: "bike")
             market.map = mapView
-            //        let nextLocation = CLLocationCoordinate2DMake(21.585219, 105.806863)
-            //        mapView.camera = GMSCameraPosition.camera(withLatitude: currentDestination!.location , zoom: currentDestination!.zoom)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: Selector("back"))
+            
+//            let navi = storyboard?.instantiateViewController(withIdentifier: "navi")
+//
+//            self.addChild(navi!)
+//            navi?.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0)
+//            self.view.addSubview((navi?.view)!)
+//            navi?.didMove(toParent: self)
+            
         }
     }
   

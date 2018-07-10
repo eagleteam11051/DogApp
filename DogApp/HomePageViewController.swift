@@ -38,7 +38,12 @@ class HomePageViewController: UIViewController {
         self.present(googleMap!, animated: true, completion: nil)
     }
     
-
+   
+    @IBAction func btnDaBook(_ sender: Any) {
+        let jobWaiting = self.storyboard?.instantiateViewController(withIdentifier: "jobwaiting")
+        self.present(jobWaiting!, animated: true, completion: nil)
+    }
+    
     
 
 }

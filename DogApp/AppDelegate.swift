@@ -11,6 +11,7 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 import UserNotifications
+import GoogleMaps
 //import MessagingDelegate
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
-        
+        GMSServices.provideAPIKey("AIzaSyD2kiwgq9e1qFi-z2-iEzdcbvloSNOweBo")
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
         // [END set_messaging_delegate]

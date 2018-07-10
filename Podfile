@@ -9,6 +9,7 @@ pod 'GoogleMaps'
     pod 'GooglePlaces'
     pod 'Firebase/Core'
     pod 'SCLAlertView'
+    pod 'SwiftyJSON'
     pod 'Firebase/Messaging'
   # Pods for DogApp
 

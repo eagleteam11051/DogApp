@@ -10,21 +10,22 @@ import UIKit
 
 class JobViewController: UIViewController {
 
+    @IBOutlet weak var txtDiemNhan: UILabel!
+    @IBOutlet weak var txtDiemGiao: UILabel!
+    @IBOutlet weak var txtKhoangCach: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        txtDiemNhan.text = DiemNhan
+        txtDiemGiao.text = DiemGiao
+        txtKhoangCach.text = KhoangCach
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnNhanViec(_ sender: UIButton) {
+        let googleMap = self.storyboard?.instantiateViewController(withIdentifier: "googlemap")
+        self.present(googleMap!, animated: true, completion: nil)
     }
-    */
-
+    @IBAction func btnTuChoi(_ sender: UIButton) {
+        let googleMap = self.storyboard?.instantiateViewController(withIdentifier: "googlemap")
+        self.present(googleMap!, animated: true, completion: nil)
+    }
 }

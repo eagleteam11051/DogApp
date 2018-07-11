@@ -36,14 +36,23 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
             let Status = Value["status"]
             //let Response = Value["response"] as! [[String: Any]]
             
-            print("response",Status)
-            print("response",Value["response"])
+//            print("response",Status)
+//            print("response",Value["response"])
             let res = Value["response"] as! [[String: Any]]
-
+            
             for item in res{
+                Distance = item["distance"] as! String
+                let dropoff = item["dropoff"] as! [String: Any]
+                AddressGiao = dropoff["address"]! as! String
+                //print("DiemGiao",AddressGiao)
+                LatitudeGiao = dropoff["latitude"]! as! String
+                // print(LatitudeGiao)
+                LongitudeGiao = dropoff["longitude"]! as! String
+                //print(LongitudeGiao)
                 let pickup = item["pickup"] as! [String: Any]
-                 Address = pickup["address"]! as! String
-                print(Address)
+                 AddressNhan = pickup["address"]! as! String
+                print("Diem Nhan: ",AddressNhan)
+                print("DiemGiao",AddressGiao)
                  Latitude = pickup["latitude"]! as! String
                 print(Latitude)
                 Longitude = pickup["longitude"]! as! String
@@ -55,8 +64,9 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
                 print("currentLocation",currentLocation)
                 var market = GMSMarker()
                 market.position = currentLocation
-                market.snippet = "hihi "
-                market.title = Address
+                market.accessibilityLabel = Distance
+                market.snippet = AddressGiao
+                market.title = AddressNhan
                 market.map = self.mapView
                 market.icon = UIImage(named: "bike")
             }
@@ -88,14 +98,19 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
     }
     
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print(marker.title)
+        print("******************************************************************")
+        KhoangCach = marker.accessibilityLabel!
+        DiemNhan = marker.title!
+        DiemGiao = marker.snippet!
+        print(DiemNhan)
+        print(DiemGiao)
         let jobView = self.storyboard?.instantiateViewController(withIdentifier: "jobview")
         self.present(jobView!, animated: true, completion: nil)
         return true
     }
     
     override func loadView() {
-        let camera = GMSCameraPosition.camera(withLatitude: 21.5961536, longitude: 105.8121259  , zoom: 13.0)
+        let camera = GMSCameraPosition.camera(withLatitude: 21.5961536, longitude: 105.8121259  , zoom: 11.3759)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
         mapView?.delegate = self

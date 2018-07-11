@@ -287,6 +287,9 @@
                                 <state key="normal" title="Nhận Việc">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnNhanViec:" destination="RT4-u1-AT8" eventType="touchUpInside" id="oPZ-Ue-Ayw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pC8-mG-1dS">
                                 <rect key="frame" x="59" y="542" width="258" height="50"/>
@@ -296,11 +299,19 @@
                                 <state key="normal" title="Từ Chối">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnTuChoi:" destination="RT4-u1-AT8" eventType="touchUpInside" id="hr0-fD-Kkx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="PWe-kp-Kia"/>
                     </view>
+                    <connections>
+                        <outlet property="txtDiemGiao" destination="t4T-tS-HLb" id="Rzr-4p-Wc4"/>
+                        <outlet property="txtDiemNhan" destination="n8w-cv-ePC" id="AyK-ch-NPj"/>
+                        <outlet property="txtKhoangCach" destination="WM4-sm-9QD" id="Ecl-oh-S3R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgK-wX-1yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

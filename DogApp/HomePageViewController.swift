@@ -40,8 +40,12 @@ class HomePageViewController: UIViewController {
     
    
     @IBAction func btnDaBook(_ sender: Any) {
-        let jobWaiting = self.storyboard?.instantiateViewController(withIdentifier: "jobwaiting")
+        let jobWaiting = self.storyboard?.instantiateViewController(withIdentifier: "job")
         self.present(jobWaiting!, animated: true, completion: nil)
+    }
+    @IBAction func btnDangLam(_ sender: Any) {
+        let JobWorking = self.storyboard?.instantiateViewController(withIdentifier: "jobworking")
+        self.present(JobWorking!, animated: true, completion: nil)
     }
     
     

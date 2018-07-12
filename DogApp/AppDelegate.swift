@@ -20,9 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     let gcmMessageIDKey = "gcm.message_id"
 
 
+//
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//
+//
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+ 
+    if let messageID = userInfo[gcmMessageIDKey] {
+        print("Message ID: \(messageID)")
+    }
+    
+    print(userInfo)
+}
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyD2kiwgq9e1qFi-z2-iEzdcbvloSNOweBo")
         // [START set_messaging_delegate]
@@ -48,19 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         
         application.registerForRemoteNotifications()
         
-        return true
+        
+        
     }
-
-func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
- 
-    if let messageID = userInfo[gcmMessageIDKey] {
-        print("Message ID: \(messageID)")
-    }
-    
-    print(userInfo)
-}
-    
-
 func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                  fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
 

@@ -32,10 +32,10 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
 
     func loadLocation(){
         let headers: HTTPHeaders = [
-            "X-API-KEY": "44wkgccggkgo4gccc80040s84k8cg8kscgck80c0",
+            "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetNewJobs/?hero_id=16&service=3",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetNewJobs/?hero_id=\(heroID)&service=3",headers: headers).responseJSON {(response) in
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"]
             //let Response = Value["response"] as! [[String: Any]]
@@ -74,8 +74,6 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
                 market.map = self.mapView
                 market.icon = UIImage(named: "bike")
             }
-        
-        
         }
     }
     

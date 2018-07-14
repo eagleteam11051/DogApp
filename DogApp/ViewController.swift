@@ -29,22 +29,22 @@ class ViewController: UIViewController {
 //            let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
 //            self.present(homePage!, animated: true, completion: nil)
 //        }
+        
+        tokenfb = getCache(key: "tokenfb") ?? ""
+        
+        if(getCache(key: "mail") != nil && getCache(key: "pass") != nil){
+            login(mail: getCache(key: "mail")!, pass: getCache(key: "pass")!)
+        }
+        
+        
+        
     }
     
-    @IBAction func btnSingin(_ sender: Any) {
-        mail = txtEmail.text!
-        pass = txtPass.text!
+    func login(mail:String,pass:String){
         
-        //let dn:String = (order?.pickup?.address!)!
-        //diemnhan.text = "Điểm Nhận: \(dn)"
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false
-        )
-        let alert = SCLAlertView(appearance: appearance).showWait("Đang đăng nhập", subTitle: "Vui lòng chờ...", closeButtonTitle: nil, timeout: nil, colorStyle: nil, colorTextButton: 0x3f4449, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            alert.close()
-        let headers: HTTPHeaders = [
-            "X-API-KEY": "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w"]
+        
+            let headers: HTTPHeaders = [
+                "X-API-KEY": "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w"]
             Alamofire.request("http://shipx.vn/api/index.php/VinterSignin/?mobile=\(mail)&password=\(pass)&token=\(tokenfb)&phone_os=2",headers: headers).responseJSON {(response) in
                 print("value",response)
                 let Value = response.result.value as! [String: Any]
@@ -60,9 +60,10 @@ class ViewController: UIViewController {
                     diachi = Response["address"] as? String ?? " "
                     linkima = Response["image"] as? String ?? " "
                     tokenlogin = Response["token"] as? String ?? " "
+                    saveCache(key: "mail", value: mail)
+                    saveCache(key: "pass", value: pass)
                     
-                    
-                   // UserDefaults.standard.set(true, forKey: "tokenfb")
+                    //  UserDefaults.standard.set(true, forKey: "tokenfb")
                     let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
                     self.present(homePage!, animated: true, completion: nil)
                     
@@ -71,10 +72,32 @@ class ViewController: UIViewController {
                     _ = SCLAlertView().showError("Lỗi đăng nhập", subTitle:"Tài khoản mật khẩu không đúng", closeButtonTitle:"OK")
                 }
                 
-            }
             
+            
+        }
+    }
+    
+    @IBAction func btnSingin(_ sender: Any) {
+        let mail = txtEmail.text!
+        let pass = txtPass.text!
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alert = SCLAlertView(appearance: appearance).showWait("Đang đăng nhập", subTitle: "Vui lòng chờ...", closeButtonTitle: nil, timeout: nil, colorStyle: nil, colorTextButton: 0x3f4449, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            alert.close()
+            self.login(mail: mail, pass: pass)
+        //let dn:String = (order?.pickup?.address!)!
+        //diemnhan.text = "Điểm Nhận: \(dn)"
         }
         
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return (true)
+    }
+
 }

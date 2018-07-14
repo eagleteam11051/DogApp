@@ -21,7 +21,7 @@ class HomePageViewController: UIViewController {
         txtHeroID.text = heroID
         txtTaiKhoan.text = tien
         txtDiaChi.text = diachi
-        
+        print(linkima)
         let url:URL = URL(string: linkima)!
         print(url)
         do{

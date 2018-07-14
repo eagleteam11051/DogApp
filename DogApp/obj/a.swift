@@ -26,8 +26,7 @@ var Distance: String = " "
 var DiemNhan : String = " "
 var DiemGiao : String = " "
 var KhoangCach: String = " "
-var mail :String = " "
-var pass :String = " "
+
 func showAlert(msg:String,view:UIViewController){
     // Create the alert controller
     let alertController = UIAlertController(title: "Thông Báo", message: msg, preferredStyle: .alert)
@@ -42,4 +41,11 @@ func showAlert(msg:String,view:UIViewController){
     alertController.addAction(okAction)
     // Present the controller
     view.present(alertController, animated: true, completion: nil)
+}
+func saveCache(key:String,value:String){
+    UserDefaults.standard.setValue(value, forKey: key)
+    //print("hihi:\(UserDefaults.standard.value(forKey: "hihi")!)")
+}
+func getCache(key:String)->String?{
+    return UserDefaults.standard.value(forKey: key) as? String
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class JobViewController: UIViewController {
 
+    @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var txtDiemNhan: UILabel!
     @IBOutlet weak var txtDiemGiao: UILabel!
     @IBOutlet weak var txtKhoangCach: UILabel!
@@ -18,6 +19,11 @@ class JobViewController: UIViewController {
         txtDiemNhan.text = DiemNhan
         txtDiemGiao.text = DiemGiao
         txtKhoangCach.text = KhoangCach
+        let time = timePicker.date
+        let gio = Calendar.current.component(.hour, from: time)
+        let phut = Calendar.current.component(.minute, from: time)
+        print("gio:",gio)
+        print("phut:",phut)
     }
 
     @IBAction func btnNhanViec(_ sender: UIButton) {

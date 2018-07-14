@@ -29,10 +29,10 @@ class history: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     func loadWorking(){
         let headers: HTTPHeaders = [
-            "X-API-KEY": "44wkgccggkgo4gccc80040s84k8cg8kscgck80c0",
+            "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=16&status=8&start_date=24-06-2018&end_date=02-08-2018&start=0",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=8&start_date=24-06-2018&end_date=02-08-2018&start=0",headers: headers).responseJSON {(response) in
             
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String

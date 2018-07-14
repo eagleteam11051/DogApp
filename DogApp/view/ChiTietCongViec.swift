@@ -39,7 +39,7 @@ class ChiTietCongViec: UIViewController {
         diemgiao.text = "Điểm Giao: \(dg)"
         let kc:String = (order?.distance!)!
         khoangcach.text = "Khoảng Cách: \(kc) Km"
-        let sdt:String = (order?.pickup?.mobile!)!
+        let sdt:String = (order?.pickup?.mobile ?? "null")!
         sodienthoai.text = "Số Điện Thoại: \(sdt)"
         let yc:String = (order?.note!)!
         yeucau.text = "Yêu Cầu: \(yc)"

@@ -156,19 +156,21 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     
     func requestNhanHang(hero_id:String,order_id:String,lat:String,lng:String){
         let headers: HTTPHeaders = [
-            "X-API-KEY": "44wkgccggkgo4gccc80040s84k8cg8kscgck80c0",
+            "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
         Alamofire.request("http://shipx.vn/api/index.php/VinterWoking/?hero_id=\(hero_id)&order_id=\(order_id)&lat=\(lat)&long=\(lng)",headers: headers).responseJSON {(response) in
             
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String
-            let response = Value["response"] as! Any
+            let response = Value["response"] as? Any
+            print("res",response)
             
             if(Status == "success"){
                 showAlert(msg: "Cập nhật trạng thái đơn hàng thành công", view: self)
             }else{
                 showAlert(msg: response as! String, view: self)
+                print("loi.....")
             }
             DispatchQueue.main.async {
                 self.loadWorking()
@@ -177,7 +179,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     }
     func requestGiaoHang(hero_id:String,order_id:String,lat:String,lng:String){
         let headers: HTTPHeaders = [
-            "X-API-KEY": "44wkgccggkgo4gccc80040s84k8cg8kscgck80c0",
+            "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
         Alamofire.request("http://shipx.vn/api/index.php/OrderSuccess/?hero_id=\(hero_id)&order_id=\(order_id)&lat=\(lat)&long=\(lng)",headers: headers).responseJSON {(response) in
@@ -200,10 +202,10 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     
     func loadWorking(){
         let headers: HTTPHeaders = [
-            "X-API-KEY": "44wkgccggkgo4gccc80040s84k8cg8kscgck80c0",
+            "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=16&status=2&start_date=21-06-2018&end_date=30-07-2018&start=0",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetWorking/?hero_id=\(heroID)&service=3&status=2&start_date=21-06-2018&end_date=30-07-2018&start=0",headers: headers).responseJSON {(response) in
             
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String

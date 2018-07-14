@@ -27,10 +27,10 @@ class JobWorkingViewController: UIViewController,UITableViewDataSource,UITableVi
     
     override func viewDidAppear(_ animated: Bool) {
         let headers: HTTPHeaders = [
-            "X-API-KEY": "44wkgccggkgo4gccc80040s84k8cg8kscgck80c0",
+            "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=16&status=9&start_date=21-06-2018&end_date=30-07-2018&start=0",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=9&start_date=21-06-2018&end_date=30-07-2018&start=0",headers: headers).responseJSON {(response) in
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String
             

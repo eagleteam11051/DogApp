@@ -11,11 +11,23 @@
 		8446ED9420ECCFD4002C87A8 /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446ED9320ECCFD4002C87A8 /* a.swift */; };
 		8446ED9820ED0A1C002C87A8 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446ED9720ED0A1C002C87A8 /* GoogleMapViewController.swift */; };
 		844E346F20F257AC00A73DE1 /* JobWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E346E20F257AC00A73DE1 /* JobWaitingViewController.swift */; };
+		845AF8C120F9977B00CAB5E1 /* NaviTimViec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845AF8C020F9977B00CAB5E1 /* NaviTimViec.swift */; };
 		8467C6C220F73937002F6436 /* JobWaitingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467C6C120F73937002F6436 /* JobWaitingCell.swift */; };
 		8467C6C420F74A19002F6436 /* JobWorkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */; };
 		8467C6C620F7536E002F6436 /* JobWorkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467C6C520F7536E002F6436 /* JobWorkingTableViewCell.swift */; };
 		84A0E96820F4BB9E00AA7351 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0E96720F4BB9E00AA7351 /* JobViewController.swift */; };
 		84BB7F0520F3696C007A5AC5 /* job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB7F0420F3696C007A5AC5 /* job.swift */; };
+		84CA8BEE20F94DDB0083B8F5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84CA8BEC20F94DDB0083B8F5 /* Model.xcdatamodeld */; };
+		84E1555B20F84EFF00F0F807 /* job2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1555A20F84EFF00F0F807 /* job2.swift */; };
+		84E1555D20F851AC00F0F807 /* Working.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1555C20F851AC00F0F807 /* Working.swift */; };
+		84E1555F20F85A6B00F0F807 /* WorkingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1555E20F85A6B00F0F807 /* WorkingCell.swift */; };
+		84E1556120F860DD00F0F807 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1556020F860DD00F0F807 /* Order.swift */; };
+		84E1556620F897AF00F0F807 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1556520F897AF00F0F807 /* Net.swift */; };
+		84E1556820F8A3F400F0F807 /* ChiTietCongViec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1556720F8A3F400F0F807 /* ChiTietCongViec.swift */; };
+		84E1556A20F8A48C00F0F807 /* BanDoCongViec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1556920F8A48C00F0F807 /* BanDoCongViec.swift */; };
+		84E1556C20F8A89100F0F807 /* NaviBanDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1556B20F8A89100F0F807 /* NaviBanDo.swift */; };
+		84E1556E20F90BEC00F0F807 /* history.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1556D20F90BEC00F0F807 /* history.swift */; };
+		84E1557220F90CA400F0F807 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E1557120F90CA400F0F807 /* HistoryCell.swift */; };
 		84E7386520EB6FE600D4DFB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7386420EB6FE600D4DFB0 /* AppDelegate.swift */; };
 		84E7386720EB6FE600D4DFB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7386620EB6FE600D4DFB0 /* ViewController.swift */; };
 		84E7386A20EB6FE600D4DFB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E7386820EB6FE600D4DFB0 /* Main.storyboard */; };
@@ -50,12 +62,24 @@
 		8446ED9320ECCFD4002C87A8 /* a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a.swift; sourceTree = "<group>"; };
 		8446ED9720ED0A1C002C87A8 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		844E346E20F257AC00A73DE1 /* JobWaitingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWaitingViewController.swift; sourceTree = "<group>"; };
+		845AF8C020F9977B00CAB5E1 /* NaviTimViec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviTimViec.swift; sourceTree = "<group>"; };
 		8467C6C120F73937002F6436 /* JobWaitingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWaitingCell.swift; sourceTree = "<group>"; };
 		8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWorkingViewController.swift; sourceTree = "<group>"; };
 		8467C6C520F7536E002F6436 /* JobWorkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWorkingTableViewCell.swift; sourceTree = "<group>"; };
 		84A0E96720F4BB9E00AA7351 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		84BB7F0420F3696C007A5AC5 /* job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = job.swift; sourceTree = "<group>"; };
 		84C15531A2E85F0A88439A2A /* Pods-DogApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogApp/Pods-DogApp.release.xcconfig"; sourceTree = "<group>"; };
+		84CA8BED20F94DDB0083B8F5 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		84E1555A20F84EFF00F0F807 /* job2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = job2.swift; sourceTree = "<group>"; };
+		84E1555C20F851AC00F0F807 /* Working.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Working.swift; sourceTree = "<group>"; };
+		84E1555E20F85A6B00F0F807 /* WorkingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingCell.swift; sourceTree = "<group>"; };
+		84E1556020F860DD00F0F807 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		84E1556520F897AF00F0F807 /* Net.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Net.swift; sourceTree = "<group>"; };
+		84E1556720F8A3F400F0F807 /* ChiTietCongViec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTietCongViec.swift; sourceTree = "<group>"; };
+		84E1556920F8A48C00F0F807 /* BanDoCongViec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanDoCongViec.swift; sourceTree = "<group>"; };
+		84E1556B20F8A89100F0F807 /* NaviBanDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviBanDo.swift; sourceTree = "<group>"; };
+		84E1556D20F90BEC00F0F807 /* history.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = history.swift; sourceTree = "<group>"; };
+		84E1557120F90CA400F0F807 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		84E7386120EB6FE500D4DFB0 /* DogApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E7386420EB6FE600D4DFB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E7386620EB6FE600D4DFB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +132,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		84E1556220F8893F00F0F807 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				84E1555A20F84EFF00F0F807 /* job2.swift */,
+				84BB7F0420F3696C007A5AC5 /* job.swift */,
+				8431A83520EBCBA800FABF07 /* HomePageViewController.swift */,
+				844E346E20F257AC00A73DE1 /* JobWaitingViewController.swift */,
+				8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */,
+				84A0E96720F4BB9E00AA7351 /* JobViewController.swift */,
+				84E1555C20F851AC00F0F807 /* Working.swift */,
+				84E1556720F8A3F400F0F807 /* ChiTietCongViec.swift */,
+				84E1556920F8A48C00F0F807 /* BanDoCongViec.swift */,
+				84E1556B20F8A89100F0F807 /* NaviBanDo.swift */,
+				84E1556D20F90BEC00F0F807 /* history.swift */,
+				8446ED9720ED0A1C002C87A8 /* GoogleMapViewController.swift */,
+				845AF8C020F9977B00CAB5E1 /* NaviTimViec.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		84E1556320F8895F00F0F807 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				8467C6C120F73937002F6436 /* JobWaitingCell.swift */,
+				8467C6C520F7536E002F6436 /* JobWorkingTableViewCell.swift */,
+				84E1555E20F85A6B00F0F807 /* WorkingCell.swift */,
+				84E1557120F90CA400F0F807 /* HistoryCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		84E1556420F8898800F0F807 /* obj */ = {
+			isa = PBXGroup;
+			children = (
+				84E1556020F860DD00F0F807 /* Order.swift */,
+				8446ED9320ECCFD4002C87A8 /* a.swift */,
+				84E1556520F897AF00F0F807 /* Net.swift */,
+			);
+			path = obj;
+			sourceTree = "<group>";
+		};
 		84E7385820EB6FE500D4DFB0 = {
 			isa = PBXGroup;
 			children = (
@@ -133,23 +198,18 @@
 		84E7386320EB6FE500D4DFB0 /* DogApp */ = {
 			isa = PBXGroup;
 			children = (
+				84E1556420F8898800F0F807 /* obj */,
+				84E1556320F8895F00F0F807 /* cell */,
+				84E1556220F8893F00F0F807 /* view */,
 				84F21F7320EF7CE2003FBA75 /* DogApp.entitlements */,
 				84F21F7020EF1E61003FBA75 /* GoogleService-Info.plist */,
 				84E7386420EB6FE600D4DFB0 /* AppDelegate.swift */,
 				84E7386620EB6FE600D4DFB0 /* ViewController.swift */,
-				8431A83520EBCBA800FABF07 /* HomePageViewController.swift */,
+				84CA8BEC20F94DDB0083B8F5 /* Model.xcdatamodeld */,
 				84E7386820EB6FE600D4DFB0 /* Main.storyboard */,
 				84E7386B20EB6FEB00D4DFB0 /* Assets.xcassets */,
 				84E7386D20EB6FEB00D4DFB0 /* LaunchScreen.storyboard */,
 				84E7387020EB6FEB00D4DFB0 /* Info.plist */,
-				8446ED9320ECCFD4002C87A8 /* a.swift */,
-				8446ED9720ED0A1C002C87A8 /* GoogleMapViewController.swift */,
-				844E346E20F257AC00A73DE1 /* JobWaitingViewController.swift */,
-				8467C6C120F73937002F6436 /* JobWaitingCell.swift */,
-				8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */,
-				8467C6C520F7536E002F6436 /* JobWorkingTableViewCell.swift */,
-				84BB7F0420F3696C007A5AC5 /* job.swift */,
-				84A0E96720F4BB9E00AA7351 /* JobViewController.swift */,
 			);
 			path = DogApp;
 			sourceTree = "<group>";
@@ -396,15 +456,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84E1556820F8A3F400F0F807 /* ChiTietCongViec.swift in Sources */,
 				844E346F20F257AC00A73DE1 /* JobWaitingViewController.swift in Sources */,
 				8431A83620EBCBA800FABF07 /* HomePageViewController.swift in Sources */,
+				84E1555B20F84EFF00F0F807 /* job2.swift in Sources */,
+				84E1555F20F85A6B00F0F807 /* WorkingCell.swift in Sources */,
+				84E1556C20F8A89100F0F807 /* NaviBanDo.swift in Sources */,
 				84BB7F0520F3696C007A5AC5 /* job.swift in Sources */,
+				84E1555D20F851AC00F0F807 /* Working.swift in Sources */,
 				8467C6C220F73937002F6436 /* JobWaitingCell.swift in Sources */,
+				84CA8BEE20F94DDB0083B8F5 /* Model.xcdatamodeld in Sources */,
 				8467C6C620F7536E002F6436 /* JobWorkingTableViewCell.swift in Sources */,
+				84E1556E20F90BEC00F0F807 /* history.swift in Sources */,
 				8446ED9820ED0A1C002C87A8 /* GoogleMapViewController.swift in Sources */,
+				84E1556A20F8A48C00F0F807 /* BanDoCongViec.swift in Sources */,
 				84A0E96820F4BB9E00AA7351 /* JobViewController.swift in Sources */,
 				8467C6C420F74A19002F6436 /* JobWorkingViewController.swift in Sources */,
+				84E1557220F90CA400F0F807 /* HistoryCell.swift in Sources */,
+				84E1556620F897AF00F0F807 /* Net.swift in Sources */,
 				84E7386720EB6FE600D4DFB0 /* ViewController.swift in Sources */,
+				845AF8C120F9977B00CAB5E1 /* NaviTimViec.swift in Sources */,
+				84E1556120F860DD00F0F807 /* Order.swift in Sources */,
 				8446ED9420ECCFD4002C87A8 /* a.swift in Sources */,
 				84E7386520EB6FE600D4DFB0 /* AppDelegate.swift in Sources */,
 			);
@@ -739,6 +811,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84CA8BEC20F94DDB0083B8F5 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84CA8BED20F94DDB0083B8F5 /* Model.xcdatamodel */,
+			);
+			currentVersion = 84CA8BED20F94DDB0083B8F5 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 84E7385920EB6FE500D4DFB0 /* Project object */;
 }

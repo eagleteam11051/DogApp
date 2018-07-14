@@ -9,11 +9,10 @@
 import UIKit
 import Alamofire
 
-class JobWorkingViewController: UIViewController{
+class JobWorkingViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
     var YeuCau = [String]()
     var Thoigian = [String]()
     var Goi = [String]()
-    var soCV: Int = 1
     
     @IBOutlet weak var tableview: UITableView!
     
@@ -39,8 +38,6 @@ class JobWorkingViewController: UIViewController{
             if(Status == "success"){
                 let a = Status.count
                 let res = Value["response"] as! [[String: Any]]
-                self.soCV = a
-                print(self.soCV)
                 for item in res{
                     
                     self.Goi.append(item["shipping_type"] as! String)
@@ -59,17 +56,13 @@ class JobWorkingViewController: UIViewController{
             
         }
     }
-    func tableView(_ tableView: UITableView,numberOfRowsInSection section: Int) -> Int {
-        print(self.soCV)
-        return soCV
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return YeuCau.count
     }
-    
-//    func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "jhgf") as! JobWorkingTableViewCell
-//        cell.lblTieude.text! = Goi[indexPath.row]
-//        cell.imaIcon.image = UIImage(named: "bike")
-//      //  cell.lblYeucau.text = YeuCau[indexPath.row]
-//        return cell
-//    }
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //cellworking
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellworking") as! JobWorkingTableViewCell
+        cell.lblTieude.text = YeuCau[indexPath.row]
+        return cell
+    }
 }

@@ -32,6 +32,7 @@ class HomePageViewController: UIViewController {
             
         }
         
+        
     }
     @IBAction func btnDangco(_ sender: Any) {
         let googleMap = self.storyboard?.instantiateViewController(withIdentifier: "googlemap")
@@ -47,7 +48,10 @@ class HomePageViewController: UIViewController {
         let JobWorking = self.storyboard?.instantiateViewController(withIdentifier: "jobworking")
         self.present(JobWorking!, animated: true, completion: nil)
     }
+    //history
+    @IBAction func btnDalam(_ sender: Any) {
+        let History = self.storyboard?.instantiateViewController(withIdentifier: "History")
+        self.present(History!, animated: true, completion: nil)
+    }
     
-    
-
 }

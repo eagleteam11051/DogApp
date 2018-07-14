@@ -43,6 +43,8 @@
 	<string>accept to get location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>accept to get location</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>accept to get location</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

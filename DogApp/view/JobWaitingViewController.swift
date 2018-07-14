@@ -15,6 +15,10 @@ class JobWaitingViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var tableview: UITableView!
     
     
+    @IBAction func btnBack(_ sender: Any) {
+        let Job = self.storyboard?.instantiateViewController(withIdentifier: "job")
+        self.present(Job!, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,11 +51,13 @@ class JobWaitingViewController: UIViewController, UITableViewDataSource, UITable
             
         }
     }
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        print(self.soCV)
+        print(soCV)
         return soCV
     }
+
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {

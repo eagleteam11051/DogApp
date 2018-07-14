@@ -25,11 +25,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        if UserDefaults.standard.bool(forKey: "tokenfb"){
+//            let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
+//            self.present(homePage!, animated: true, completion: nil)
+//        }
     }
     
     @IBAction func btnSingin(_ sender: Any) {
-        //let a = txtEmail
-        //let b = txtPass
+        mail = txtEmail.text!
+        pass = txtPass.text!
+        
+        //let dn:String = (order?.pickup?.address!)!
+        //diemnhan.text = "Điểm Nhận: \(dn)"
         let appearance = SCLAlertView.SCLAppearance(
             showCloseButton: false
         )
@@ -37,14 +44,14 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             alert.close()
         let headers: HTTPHeaders = [
-            "X-API-KEY": "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w",
-            "Accept": "application/json"
-        ]
-            Alamofire.request("http://shipx.vn/api/index.php/VinterSignin/?token=da&mobile=0945333445&password=123456&phone_os=2",headers: headers).responseJSON {(response) in
+            "X-API-KEY": "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w"]
+            Alamofire.request("http://shipx.vn/api/index.php/VinterSignin/?mobile=\(mail)&password=\(pass)&token=\(tokenfb)&phone_os=2",headers: headers).responseJSON {(response) in
+                print("value",response)
                 let Value = response.result.value as! [String: Any]
                 let Status = Value["status"] as! String
                 print(Status)
                 if (Status == "success"){
+                    print("da oke")
                     var Response = Value["response"] as! [String: Any]
                     //let Token = Response["token"] as! String
                     heroID  = Response["hero_id"] as! String
@@ -52,8 +59,10 @@ class ViewController: UIViewController {
                     tien = Response["balance"] as? String ?? " "
                     diachi = Response["address"] as? String ?? " "
                     linkima = Response["image"] as? String ?? " "
-                    token = Response["token"] as? String ?? " "
-                    print(token)
+                    tokenlogin = Response["token"] as? String ?? " "
+                    
+                    
+                   // UserDefaults.standard.set(true, forKey: "tokenfb")
                     let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
                     self.present(homePage!, animated: true, completion: nil)
                     
@@ -61,14 +70,11 @@ class ViewController: UIViewController {
                 if (Status == "error"){
                     _ = SCLAlertView().showError("Lỗi đăng nhập", subTitle:"Tài khoản mật khẩu không đúng", closeButtonTitle:"OK")
                 }
-    }
-    
-    
+                
+            }
+            
         }
         
-        
-        
-        }
-        
-        
     }
+    
+}

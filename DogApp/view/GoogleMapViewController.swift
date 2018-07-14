@@ -22,7 +22,11 @@ class VacationDestination: NSObject {
     }
 }
 
-class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate {
+class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewDelegate,navitimviec {
+    func back() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
 
@@ -120,4 +124,32 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
 //        market.snippet = "hehe"
 //        market.map = mapView
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        addSub()
     }
+    
+    func addSub(){
+        let chucNangTren = storyboard!.instantiateViewController(withIdentifier: "navitimviec") as? NaviTimViec
+        chucNangTren?.dele = self
+        self.addChildViewController(chucNangTren!)
+        var fra:CGRect
+        if(self.view.frame.height>800){
+            fra = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 50)
+        }else{
+            fra = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+        }
+        
+        chucNangTren?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
+        self.view.addSubview((chucNangTren?.view)!)
+        chucNangTren?.didMove(toParentViewController: self)
+        //duoi
+    }
+    
+    }
+
+
+
+protocol navitimviec {
+    func back()
+}

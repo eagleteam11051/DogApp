@@ -20,8 +20,7 @@ class job2: UIViewController {
     
     
     @IBAction func btnBack(_ sender: Any) {
-        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
-        self.present(homePage!, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

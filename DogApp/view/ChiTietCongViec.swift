@@ -17,8 +17,7 @@ class ChiTietCongViec: UIViewController {
         self.present(bando, animated: true, completion: nil)
     }
     @IBAction func btnBack(_ sender: Any) {
-        let jobTable2 = self.storyboard?.instantiateViewController(withIdentifier: "jobtable2")
-        self.present(jobTable2!, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
         
     }
     

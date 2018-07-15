@@ -15,8 +15,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
         return data.count
     }
     @IBAction func btnBack(_ sender: Any) {
-        let jobWorking = self.storyboard?.instantiateViewController(withIdentifier: "jobworking")
-        self.present(jobWorking!, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

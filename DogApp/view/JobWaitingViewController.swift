@@ -16,8 +16,7 @@ class JobWaitingViewController: UIViewController, UITableViewDataSource, UITable
     
     
     @IBAction func btnBack(_ sender: Any) {
-        let Job = self.storyboard?.instantiateViewController(withIdentifier: "job")
-        self.present(Job!, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

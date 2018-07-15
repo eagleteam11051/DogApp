@@ -12,8 +12,7 @@ class job: UIViewController {
 
     @IBOutlet weak var viewgiaohangnhanh: UIView!
     @IBAction func btnBack(_ sender: Any) {
-        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
-        self.present(homePage!, animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     func setOnClickListener(){
         viewgiaohangnhanh.isUserInteractionEnabled = true

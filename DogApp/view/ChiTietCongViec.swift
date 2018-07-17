@@ -28,6 +28,7 @@ class ChiTietCongViec: UIViewController {
     @IBOutlet weak var sodienthoai: UILabel!
     @IBOutlet weak var yeucau: UILabel!
     @IBOutlet weak var tienthuho: UILabel!
+    @IBOutlet weak var Tongtien: UILabel!
     
     
     override func viewDidLoad() {
@@ -44,6 +45,9 @@ class ChiTietCongViec: UIViewController {
         yeucau.text = "Yêu Cầu: \(yc)"
         let tth:String = (order?.money_first!)!
         tienthuho.text = "Tiền Thu Hộ: \(tth)đ"
+        let tiennhan: String = (order?.fee!)!
+        let tongtien: String = (order?.total!)!
+        Tongtien.text = "Tổng tiền: \(tongtien)đ"
         // Do any additional setup after loading the view.
     }
     

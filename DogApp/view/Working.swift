@@ -20,10 +20,17 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "workingcell", for: indexPath) as! WorkingCell
-        cell.note.text = data[indexPath.row].note
+        cell.note.text = data[indexPath.row].description
         cell.time.text = data[indexPath.row].create_time
+       
         cell.nhanhang.tag = indexPath.row
-        cell.nhanhang.addTarget(self, action: #selector(self.nhanhang(_:)), for: .touchUpInside)
+        if(data[indexPath.row].status == "5"){
+            cell.nhanhang.backgroundColor = UIColor.green
+            cell.nhanhang.setTitle("Đã Nhận", for: .normal)
+        }else{
+            cell.nhanhang.addTarget(self, action: #selector(self.nhanhang(_:)), for: .touchUpInside)
+        }
+       
         cell.giaohang.tag = indexPath.row
         cell.giaohang.addTarget(self, action: #selector(self.giaohang(_:)), for: .touchUpInside)
         return cell
@@ -168,7 +175,13 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
             if(Status == "success"){
                 showAlert(msg: "Cập nhật trạng thái đơn hàng thành công", view: self)
             }else{
-                showAlert(msg: response as! String, view: self)
+                if let stringResults = response as? String {
+                    // obj is a string array. Do something with stringArray
+                    showAlert(msg: response as! String, view: self)
+                }else{
+                    showAlert(msg: "Có lỗi xảy ra!", view: self)
+                }
+                
                 print("loi.....")
             }
             DispatchQueue.main.async {

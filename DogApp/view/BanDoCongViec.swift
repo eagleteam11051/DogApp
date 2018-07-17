@@ -8,11 +8,16 @@
 
 import UIKit
 import GoogleMaps
+import GooglePlaces
+import Alamofire
+import SwiftyJSON
 
 class BanDoCongViec: UIViewController,
 CLLocationManagerDelegate,
 GMSMapViewDelegate,
 navi{
+    
+
     func back() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -21,8 +26,35 @@ navi{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.distanceFilter = 500
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
         // Do any additional setup after loading the view.
     }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        
+        if (status == CLAuthorizationStatus.authorizedWhenInUse)
+            
+        {
+            mapView?.isMyLocationEnabled = true
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let newLocation = locations.last
+        mapView?.camera = GMSCameraPosition.camera(withTarget: newLocation!.coordinate, zoom: 15.0)
+        mapView?.settings.myLocationButton = true
+        self.view = self.mapView
+        let marker = GMSMarker()
+        marker.position = CLLocationCoordinate2DMake(newLocation!.coordinate.latitude, newLocation!.coordinate.longitude)
+        marker.map = self.mapView
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         addSub()
 
@@ -78,7 +110,11 @@ navi{
         
         let camera = GMSCameraPosition.camera(withLatitude: Double(lat1)!, longitude: Double(lng1)!  , zoom: 11)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView?.isMyLocationEnabled = true
+        mapView?.settings.myLocationButton = true
         view = mapView
+        
+        drawPath(origin: "\(lat1),\(lng1)", destination: "\(lat2),\(lng2)")
         
         
         market.position = CLLocationCoordinate2D(latitude: Double(lat1)!, longitude: Double(lng1)!)
@@ -92,6 +128,35 @@ navi{
         market2.map = mapView
         
 
+    }
+    
+    func drawPath(origin:String,destination:String){
+        let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving"
+        print("url:",url)
+        Alamofire.request(url).responseJSON{ response in
+            print(response.request as Any)
+            print(response.response as Any)
+            print(response.data as Any)
+            print(response.result as Any)
+            do{
+                let json = try JSON(data: response.data!)
+                let routes = json["routes"].arrayValue
+                
+                for route in routes{
+                    let routeOverviewPolyline = route["overview_polyline"].dictionary
+                    let points = routeOverviewPolyline!["points"]?.stringValue
+                    let path = GMSPath.init(fromEncodedPath: points!)
+                    let polyline = GMSPolyline.init(path: path)
+                    polyline.strokeWidth = 4
+                    polyline.strokeColor = UIColor.red
+                    polyline.map = self.mapView
+                }
+            }catch let e{
+                print("error:",e)
+            }
+            
+            
+        }
     }
 }
 

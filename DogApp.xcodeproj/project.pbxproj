@@ -15,6 +15,10 @@
 		8467C6C220F73937002F6436 /* JobWaitingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467C6C120F73937002F6436 /* JobWaitingCell.swift */; };
 		8467C6C420F74A19002F6436 /* JobWorkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */; };
 		8467C6C620F7536E002F6436 /* JobWorkingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8467C6C520F7536E002F6436 /* JobWorkingTableViewCell.swift */; };
+		84709DB720FB82C800E4007E /* Thongbao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84709DB620FB82C800E4007E /* Thongbao.swift */; };
+		84709DB920FB9AAA00E4007E /* Thongbaocell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84709DB820FB9AAA00E4007E /* Thongbaocell.swift */; };
+		84709DBB20FB9E9D00E4007E /* ThongBaoObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84709DBA20FB9E9D00E4007E /* ThongBaoObj.swift */; };
+		84709DBD20FCA3F300E4007E /* Maths.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84709DBC20FCA3F300E4007E /* Maths.swift */; };
 		84A0E96820F4BB9E00AA7351 /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A0E96720F4BB9E00AA7351 /* JobViewController.swift */; };
 		84BB7F0520F3696C007A5AC5 /* job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB7F0420F3696C007A5AC5 /* job.swift */; };
 		84CA8BEE20F94DDB0083B8F5 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84CA8BEC20F94DDB0083B8F5 /* Model.xcdatamodeld */; };
@@ -66,6 +70,10 @@
 		8467C6C120F73937002F6436 /* JobWaitingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWaitingCell.swift; sourceTree = "<group>"; };
 		8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWorkingViewController.swift; sourceTree = "<group>"; };
 		8467C6C520F7536E002F6436 /* JobWorkingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobWorkingTableViewCell.swift; sourceTree = "<group>"; };
+		84709DB620FB82C800E4007E /* Thongbao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thongbao.swift; sourceTree = "<group>"; };
+		84709DB820FB9AAA00E4007E /* Thongbaocell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thongbaocell.swift; sourceTree = "<group>"; };
+		84709DBA20FB9E9D00E4007E /* ThongBaoObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThongBaoObj.swift; sourceTree = "<group>"; };
+		84709DBC20FCA3F300E4007E /* Maths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maths.swift; sourceTree = "<group>"; };
 		84A0E96720F4BB9E00AA7351 /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		84BB7F0420F3696C007A5AC5 /* job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = job.swift; sourceTree = "<group>"; };
 		84C15531A2E85F0A88439A2A /* Pods-DogApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogApp/Pods-DogApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 				84E1555A20F84EFF00F0F807 /* job2.swift */,
 				84BB7F0420F3696C007A5AC5 /* job.swift */,
 				8431A83520EBCBA800FABF07 /* HomePageViewController.swift */,
+				84709DB620FB82C800E4007E /* Thongbao.swift */,
 				844E346E20F257AC00A73DE1 /* JobWaitingViewController.swift */,
 				8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */,
 				84A0E96720F4BB9E00AA7351 /* JobViewController.swift */,
@@ -159,6 +168,7 @@
 				8467C6C520F7536E002F6436 /* JobWorkingTableViewCell.swift */,
 				84E1555E20F85A6B00F0F807 /* WorkingCell.swift */,
 				84E1557120F90CA400F0F807 /* HistoryCell.swift */,
+				84709DB820FB9AAA00E4007E /* Thongbaocell.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -169,6 +179,8 @@
 				84E1556020F860DD00F0F807 /* Order.swift */,
 				8446ED9320ECCFD4002C87A8 /* a.swift */,
 				84E1556520F897AF00F0F807 /* Net.swift */,
+				84709DBA20FB9E9D00E4007E /* ThongBaoObj.swift */,
+				84709DBC20FCA3F300E4007E /* Maths.swift */,
 			);
 			path = obj;
 			sourceTree = "<group>";
@@ -459,11 +471,15 @@
 				84E1556820F8A3F400F0F807 /* ChiTietCongViec.swift in Sources */,
 				844E346F20F257AC00A73DE1 /* JobWaitingViewController.swift in Sources */,
 				8431A83620EBCBA800FABF07 /* HomePageViewController.swift in Sources */,
+				84709DB720FB82C800E4007E /* Thongbao.swift in Sources */,
 				84E1555B20F84EFF00F0F807 /* job2.swift in Sources */,
 				84E1555F20F85A6B00F0F807 /* WorkingCell.swift in Sources */,
 				84E1556C20F8A89100F0F807 /* NaviBanDo.swift in Sources */,
+				84709DBD20FCA3F300E4007E /* Maths.swift in Sources */,
+				84709DBB20FB9E9D00E4007E /* ThongBaoObj.swift in Sources */,
 				84BB7F0520F3696C007A5AC5 /* job.swift in Sources */,
 				84E1555D20F851AC00F0F807 /* Working.swift in Sources */,
+				84709DB920FB9AAA00E4007E /* Thongbaocell.swift in Sources */,
 				8467C6C220F73937002F6436 /* JobWaitingCell.swift in Sources */,
 				84CA8BEE20F94DDB0083B8F5 /* Model.xcdatamodeld in Sources */,
 				8467C6C620F7536E002F6436 /* JobWorkingTableViewCell.swift in Sources */,
@@ -656,7 +672,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -677,7 +693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

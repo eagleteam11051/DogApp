@@ -25,20 +25,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if UserDefaults.standard.bool(forKey: "tokenfb"){
-//            let homePage = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
-//            self.present(homePage!, animated: true, completion: nil)
-//        }
         
         tokenfb = getCache(key: "tokenfb") ?? ""
-        
+        mail1 = getCache(key: "mail") ?? ""
+        pass1 = getCache(key: "pass") ?? ""
         if(getCache(key: "mail") != nil && getCache(key: "pass") != nil){
             login(mail: getCache(key: "mail")!, pass: getCache(key: "pass")!)
         }
         
         
+
         
+
     }
+
     
     func login(mail:String,pass:String){
         
@@ -72,8 +72,6 @@ class ViewController: UIViewController {
                     _ = SCLAlertView().showError("Lỗi đăng nhập", subTitle:"Tài khoản mật khẩu không đúng", closeButtonTitle:"OK")
                 }
                 
-            
-            
         }
     }
     

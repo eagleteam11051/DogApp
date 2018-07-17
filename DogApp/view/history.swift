@@ -14,9 +14,12 @@ class history: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historycell", for: indexPath) as! HistoryCell
-        cell.lblNote.text = data[indexPath.row].note
-        cell.lblTime.text = data[indexPath.row].create_time
-        
+        let des:String = data[indexPath.row].description ?? "null"
+        let dis:String = data[indexPath.row].distance ?? "null"
+        let fee:String = data[indexPath.row].fee ?? "null"
+        cell.lblNote.text = "Mặt Hàng: \(des)"
+        cell.lblTime.text = "Quoãng Đường:\(dis)Km"
+        cell.lblsoTien.text = "Số Tiền: \(fee)đ"
         return cell
     }
     
@@ -44,19 +47,8 @@ class history: UIViewController,UITableViewDataSource,UITableViewDelegate {
                 self.data.removeAll()
                 for item in res{
                     //
-                    //                    self.Goi.append(item["shipping_type"] as! String)
-                    //                    self.YeuCau.append(item["note"] as! String)
-                    //                    self.Thoigian.append(item["create_time"] as! String)
-                    //                    print(self.YeuCau)
-                    //                    print(self.Goi)
-                    //                    print(self.Thoigian)
                     print("===========================================")
-                    //print(item.description)
                     do{
-                        //                        let order = try JSONDecoder().decode(Order.self, from: NSKeyedArchiver.archivedData(withRootObject: item))
-                        //                        print("order_id:",order.order_id)
-                        //
-                        
                         let jsonData = try? JSONSerialization.data(withJSONObject: item, options: [])
                         let jsonString:String = String(data: jsonData!, encoding: .utf8)!
                         print("jsonString:",jsonString)
@@ -83,24 +75,9 @@ class history: UIViewController,UITableViewDataSource,UITableViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadWorking()
-        // Do any additional setup after loading the view.
-    }
+        loadWorking()    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

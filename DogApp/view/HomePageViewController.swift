@@ -8,7 +8,10 @@
 
 import UIKit
 import Alamofire
-class HomePageViewController: UIViewController {
+import CoreLocation
+
+
+class HomePageViewController: UIViewController,CLLocationManagerDelegate {
     var finalToken: String?
     @IBOutlet weak var txtName: UILabel!
     @IBOutlet weak var txtHeroID: UILabel!
@@ -23,7 +26,46 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     @IBOutlet weak var view4: UIView!
+    var repeatCount = 0
+    var lat:Double = 0.0
+    var lng:Double = 0.0
+    var update = false
+    let locationManager = CLLocationManager()
+    var loadedLocation = false
 
+
+
+    
+    func hoSo(){
+        let headers: HTTPHeaders = [
+            "X-API-KEY": "8s0wswowcgc4owoc0oc8g00cwok8gkw800k8o08w"]
+        Alamofire.request("http://shipx.vn/api/index.php/VinterSignin/?mobile=\(mail1)&password=\(pass1)&token=\(tokenfb)&phone_os=2",headers: headers).responseJSON {(response) in
+            print("value",response)
+            let Value = response.result.value as! [String: Any]
+            let Status = Value["status"] as! String
+            print(Status)
+            if (Status == "success"){
+                print("da oke")
+                var Response = Value["response"] as! [String: Any]
+                //let Token = Response["token"] as! String
+                heroID  = Response["hero_id"] as! String
+                name  = Response["fullname"] as? String ?? " "
+                tien = Response["balance"] as? String ?? " "
+                diachi = Response["address"] as? String ?? " "
+                linkima = Response["image"] as? String ?? " "
+                tokenlogin = Response["token"] as? String ?? " "
+                
+            }
+            
+        }
+    }
+    @IBAction func btnThongbao(_ sender: Any) {
+        let Thongbao = self.storyboard?.instantiateViewController(withIdentifier: "Thongbao")
+        self.present(Thongbao!, animated: true, completion: nil)
+    }
+    @IBAction func reload(_ sender: Any) {
+        loadOrder()
+    }
     func setOnClickListener(){
         view1.isUserInteractionEnabled = true
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(timviec(tapGestureRecognizer:)))
@@ -73,6 +115,223 @@ class HomePageViewController: UIViewController {
         }
         
         setOnClickListener()
+        loadOrder()
+        update = true
+        requestLocation()
+        var helloWorldTimer = Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(reloadTask(tapGestureRecognizer:)), userInfo: nil, repeats: true)
+        
+        
+
+    }
+    @objc func reloadTask(tapGestureRecognizer: UITapGestureRecognizer){
+        if(repeatCount==0){
+            update = true
+            requestLocation()
+        }
+        repeatCount = repeatCount + 1
+        if(repeatCount == 2){
+            repeatCount = 0
+        }
+        
+    }
+    
+    //load location
+    // Print out the location to the console
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:",error)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            if(loadedLocation==false){
+                loadedLocation=true
+                
+                print(location.coordinate)
+                lat=location.coordinate.latitude
+                lng=location.coordinate.longitude
+                print("lat:",lat)
+                print("lng:",lng)
+                //load weather
+                if(update){
+                    postMyLocation(lat:lat,lng:lng)
+                    update = false
+                }
+                
+            }else{
+                lat=location.coordinate.latitude
+                lng=location.coordinate.longitude
+                print("lat:",lat)
+                print("lng:",lng)
+                if(update){
+                    postMyLocation(lat:lat,lng:lng)
+                    update = false
+                }
+                
+            }
+        }
+    }
+    // If we have been deined access give the user the option to change it
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == CLAuthorizationStatus.denied) {
+            showLocationDisabledPopUp()
+        }
+    }
+    // Show the popup to the user if we have been deined access
+    func showLocationDisabledPopUp() {
+        let alertController = UIAlertController(title: "Truy cập vị trí đã bị chặn",
+                                                message: "Chúng tôi cần bạn đồng ý cung cấp vị trí",
+                                                preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(openAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func postMyLocation(lat:Double,lng:Double){
+        print("postmylocation: \(lat)-\(lng)")
+        let headers: HTTPHeaders = [
+            "X-API-KEY": "\(tokenlogin)",
+            "Accept": "application/json"
+        ]
+        Alamofire.request("http://shipx.vn/api/index.php/VinterSendGeoLocation/?hero_id=\(heroID)&latitude=\(lat)&longitude=\(lng)",headers: headers).responseJSON {(response) in
+            let Value = response.result.value as! NSDictionary
+            let Status = Value["status"]
+            //let Response = Value["response"] as! [[String: Any]]
+            
+            //            print("response",Status)
+            //            print("response",Value["response"])
+            let res = Value["response"] as! Any
+            DispatchQueue.main.async {
+                //self.tnumber1.text = res.count.description
+                print("updateMyLocation:",res)
+            }
+        }
+    }
+    
+    func requestLocation(){
+        if(Net.isConnectedToNetwork()){
+            // Do any additional setup after loading the view, typically from a nib.
+            locationManager.requestAlwaysAuthorization()
+            // For use when the app is open
+            //locationManager.requestWhenInUseAuthorization()
+            // If location services is enabled get the users location
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
+                locationManager.startUpdatingLocation()
+            }else{
+                //khong co location
+                
+            }
+        }else{
+            let alertController = UIAlertController(title: "Thông báo", message: "Máy của bạn hiện tại không có kết nối mạng!", preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+                print("you've pressed ok")
+            }
+            
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tnumber2.text = "0"
+        loadOrder()
+        hoSo()
+        viewDidLoad()
+    }
+    func loadTimViec(){
+        let headers: HTTPHeaders = [
+            "X-API-KEY": "\(tokenlogin)",
+            "Accept": "application/json"
+        ]
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetNewJobs/?hero_id=\(heroID)&service=3",headers: headers).responseJSON {(response) in
+            let Value = response.result.value as! NSDictionary
+            let Status = Value["status"]
+            //let Response = Value["response"] as! [[String: Any]]
+            
+            //            print("response",Status)
+            //            print("response",Value["response"])
+            let res = Value["response"] as! [[String: Any]]
+            DispatchQueue.main.async {
+                self.tnumber1.text = res.count.description
+
+            }
+        }
+    }
+    func loadChoDuyet(){
+        let headers: HTTPHeaders = [
+            "X-API-KEY": "\(tokenlogin)",
+            "Accept": "application/json"
+        ]
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=9&start_date=21-06-2018&end_date=30-07-2018&start=0",headers: headers).responseJSON {(response) in
+            let Value = response.result.value as! NSDictionary
+            print(Value)
+            let Status = Value["status"] as! String
+            if(Status == "success"){
+                let res = Value["response"] as! [[String: Any]]
+                //
+                DispatchQueue.main.async {
+                    self.tnumber2.text = res.count.description
+                }
+            }
+            
+        }
+    }
+    func loadDangLam(){
+        let headers: HTTPHeaders = [
+            "X-API-KEY": "\(tokenlogin)",
+            "Accept": "application/json"
+        ]
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetWorking/?hero_id=\(heroID)&service=3",headers: headers).responseJSON {(response) in
+            let Value = response.result.value as! NSDictionary
+            let Status = Value["status"] as! String
+            if(Status == "success"){
+                let a = Status.count
+                let res = Value["response"] as! [[String: Any]]
+                
+                //
+                DispatchQueue.main.async {
+                    self.tnumber3.text = res.count.description
+                }
+            }
+            
+        }
+    }
+    func loadDaLam(){
+        let headers: HTTPHeaders = [
+            "X-API-KEY": "\(tokenlogin)",
+            "Accept": "application/json"
+        ]
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=8&start_date=24-06-2018&end_date=02-08-2018&start=0",headers: headers).responseJSON {(response) in
+            
+            let Value = response.result.value as! NSDictionary
+            let Status = Value["status"] as! String
+            
+            
+            if(Status == "success"){
+                let a = Status.count
+                let res = Value["response"] as! [[String: Any]]
+                
+                //
+                DispatchQueue.main.async {
+                    self.tnumber4.text = res.count.description
+                }
+            }
+            
+        }
+    }
+    
+    func loadOrder(){
+        loadTimViec()
+        loadChoDuyet()
+        loadDangLam()
+        loadDaLam()
     }
     
     

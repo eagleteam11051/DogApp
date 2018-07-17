@@ -21,12 +21,16 @@ var LongitudeGiao: String = " "
 var AddressGiao: String = " "
 var AddressNhan: String = " "
 var tokenfb: String = " "
+var Order_id: String = " "
+var mail1: String = " "
+var pass1: String = " "
 
 var Distance: String = " "
 var DiemNhan : String = " "
 var DiemGiao : String = " "
 var KhoangCach: String = " "
-
+var MaDon: String = " "
+var soTrang: Int = 0
 func showAlert(msg:String,view:UIViewController){
     // Create the alert controller
     let alertController = UIAlertController(title: "Thông Báo", message: msg, preferredStyle: .alert)

@@ -35,7 +35,7 @@ class JobWaitingViewController: UIViewController, UITableViewDataSource, UITable
                 self.soCV = res.count
                 print(self.soCV)
                 for item in res{
-                    self.YeuCau.append(item["note"] as! String)
+                    self.YeuCau.append(item["description"] as! String)
                     self.Thoigian.append(item["create_time"] as! String)
                     print(self.YeuCau)
                     

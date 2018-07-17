@@ -12,6 +12,7 @@ import FirebaseInstanceID
 import FirebaseMessaging
 import UserNotifications
 import GoogleMaps
+import GooglePlaces
 import CoreData
 //import MessagingDelegate
 @UIApplicationMain
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     static var mangedObjectContext: NSManagedObjectContext?
     var window: UIWindow?
     let gcmMessageIDKey = "gcm.message_id"
+    let key = "AIzaSyDzuGKTfmkbR_VBffpJNsgd11Gz7pFOX2c"
 
 
 //
@@ -29,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         ///
         FirebaseApp.configure()
         GMSServices.provideAPIKey("AIzaSyD2kiwgq9e1qFi-z2-iEzdcbvloSNOweBo")
+        GMSPlacesClient.provideAPIKey("AIzaSyD2kiwgq9e1qFi-z2-iEzdcbvloSNOweBo")
         // [START set_messaging_delegate]
         Messaging.messaging().delegate = self
         // [END set_messaging_delegate]

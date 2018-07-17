@@ -27,7 +27,29 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
         self.dismiss(animated: true, completion: nil)
     }
     
+    var data:[Order] = []
     
+    func getJob(tag:String)->Order?{
+        for job in data{
+            if tag == job.order_id{
+                return job
+            }
+        }
+        return nil
+    }
+    func getGroupJob(job:Order)-> [Order]{
+        var jobs:[Order] = []
+        for item in data{
+            let lat1:String = (job.pickup?.latitude)!
+            let lng1:String = (job.pickup?.longitude)!
+            let lat2:String = (item.pickup?.latitude)!
+            let lng2:String = (item.pickup?.longitude)!
+            if(distance(lat1: Double(lat1)!,lng1: Double(lng1)!,lat2: Double(lat2)!,lng2: Double(lng2)!)<100){
+                jobs.append(item)
+            }
+        }
+        return jobs
+    }
     
 
     func loadLocation(){
@@ -45,6 +67,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
             let res = Value["response"] as! [[String: Any]]
             
             for item in res{
+                Order_id = item["order_id"] as! String
                 Distance = item["distance"] as! String
                 let dropoff = item["dropoff"] as! [String: Any]
                 AddressGiao = dropoff["address"]! as! String
@@ -67,12 +90,23 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
                 print(Double(Latitude)!)
                 print("currentLocation",currentLocation)
                 var market = GMSMarker()
+                
+                market.accessibilityValue = Order_id
                 market.position = currentLocation
                 market.accessibilityLabel = Distance
                 market.snippet = AddressGiao
                 market.title = AddressNhan
                 market.map = self.mapView
                 market.icon = UIImage(named: "bike")
+                do{
+                    let jsonData = try? JSONSerialization.data(withJSONObject: item, options: [])
+                    let jsonString:String = String(data: jsonData!, encoding: .utf8)!
+                    print("jsonString:",jsonString)
+                    let order = try JSONDecoder().decode(Order.self, from: jsonString.data(using: .utf8)!)
+                    self.data.append(order)
+                }catch let e{
+                    print("error",e)
+                }
             }
         }
     }
@@ -104,10 +138,14 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
         KhoangCach = marker.accessibilityLabel!
         DiemNhan = marker.title!
         DiemGiao = marker.snippet!
+        MaDon = marker.accessibilityValue!
         print(DiemNhan)
         print(DiemGiao)
-        let jobView = self.storyboard?.instantiateViewController(withIdentifier: "jobview")
-        self.present(jobView!, animated: true, completion: nil)
+        let jobView = self.storyboard?.instantiateViewController(withIdentifier: "jobview") as! JobViewController
+        
+        jobView.data = getGroupJob(job: getJob(tag: marker.accessibilityValue!)!)
+            
+        self.present(jobView, animated: true, completion: nil)
         return true
     }
     
@@ -116,6 +154,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
         mapView?.delegate = self
+        mapView?.isMyLocationEnabled = true
 //        let market = GMSMarker()
 //        market.position = CLLocationCoordinate2D(latitude: 21, longitude: 105)
 //        market.title = "hihi"

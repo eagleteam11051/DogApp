@@ -973,12 +973,12 @@
                         <viewLayoutGuide key="safeArea" id="ygd-km-8ut"/>
                     </view>
                     <connections>
+                        <outlet property="Tongtien" destination="21i-gQ-h7e" id="RdK-hb-HaP"/>
                         <outlet property="diemgiao" destination="tPP-xF-HGX" id="rEf-iW-pQX"/>
                         <outlet property="diemnhan" destination="8Ji-o6-fRc" id="6tL-nD-z5C"/>
                         <outlet property="khoangcach" destination="HCx-Af-OUh" id="wmq-ze-pHR"/>
                         <outlet property="sodienthoai" destination="6k0-Jy-pDE" id="CVU-yK-fvG"/>
                         <outlet property="tienthuho" destination="2N8-6D-6UU" id="iM9-0V-htV"/>
-                        <outlet property="tongtien" destination="21i-gQ-h7e" id="f2m-3J-s3U"/>
                         <outlet property="yeucau" destination="Z4z-T4-t2b" id="WrL-zU-f9d"/>
                     </connections>
                 </viewController>
@@ -1037,7 +1037,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </objects>
-            <point key="canvasLocation" x="1874.4000000000001" y="2375.2623688155923"/>
+            <point key="canvasLocation" x="1873.125" y="2374.6478873239439"/>
         </scene>
         <!--Ban Do Cong Viec-->
         <scene sceneID="G88-z9-XGQ">

@@ -11,6 +11,11 @@ import UIKit
 
 class ChiTietCongViec: UIViewController {
 
+    var seconds = 120
+    var timer = Timer()
+    var isTimerRunning = false
+    var resumeTapped = false
+    
     @IBAction func banDo(_ sender: Any) {
         let bando = storyboard?.instantiateViewController(withIdentifier: "bando") as! BanDoCongViec
         bando.order = self.order
@@ -21,6 +26,8 @@ class ChiTietCongViec: UIViewController {
         
     }
     
+    
+    @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var diemnhan: UILabel!
     @IBOutlet weak var diemgiao: UILabel!
@@ -45,12 +52,33 @@ class ChiTietCongViec: UIViewController {
         yeucau.text = "Yêu Cầu: \(yc)"
         let tth:String = (order?.money_first!)!
         tienthuho.text = "Tiền Thu Hộ: \(tth)đ"
-        let tiennhan: String = (order?.fee!)!
+        var tiennhan: String = (order?.fee!)!
         let tongtien: String = (order?.total!)!
         Tongtien.text = "Tổng tiền: \(tongtien)đ"
         // Do any additional setup after loading the view.
+        runTimer()
     }
     
     var order:Order?
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(ChiTietCongViec.updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer() {
+        if seconds < 1 {
+            seconds -= 1
+//            timerLabel.text = timeString(time: TimeInterval(seconds))
+//            timerLabel.textColor = UIColor.red
+        } else {
+            seconds -= 1
+//            timerLabel.text = timeString(time: TimeInterval(seconds))
+//            timerLabel.textColor = UIColor.blue
+        }
+    }
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
 
 }

@@ -127,7 +127,12 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
         alertController.addAction(cancelAction)
         let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
             if let url = URL(string: UIApplicationOpenSettingsURLString) {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         }
         alertController.addAction(openAction)

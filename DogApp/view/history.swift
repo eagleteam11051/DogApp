@@ -35,7 +35,7 @@ class history: UIViewController,UITableViewDataSource,UITableViewDelegate {
             "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=8&start_date=24-06-2018&end_date=02-08-2018&start=0",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=8&start_date=24-06-2018&end_date=\(DateWorking)&start=0",headers: headers).responseJSON {(response) in
             
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String

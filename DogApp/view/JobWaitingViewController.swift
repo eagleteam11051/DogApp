@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+
 class JobWaitingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     var YeuCau = [String]()
     var Thoigian = [String]()
@@ -27,7 +28,7 @@ class JobWaitingViewController: UIViewController, UITableViewDataSource, UITable
             "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=9&start_date=21-06-2018&end_date=30-07-2018&start=0",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetOrders/?hero_id=\(heroID)&status=9&start_date=21-06-2018&end_date=\(DateWorking)&start=0",headers: headers).responseJSON {(response) in
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String
             if(Status == "success"){

@@ -24,7 +24,7 @@ var tokenfb: String = " "
 var Order_id: String = " "
 var mail1: String = " "
 var pass1: String = " "
-
+var DateWorking: String = " "
 var Distance: String = " "
 var DiemNhan : String = " "
 var DiemGiao : String = " "

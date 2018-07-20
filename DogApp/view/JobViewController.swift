@@ -14,6 +14,7 @@ class JobViewController: UIViewController {
     @IBOutlet weak var txtDiemNhan: UILabel!
     @IBOutlet weak var txtDiemGiao: UILabel!
     @IBOutlet weak var txtKhoangCach: UILabel!
+    @IBOutlet weak var txtThoigian: UILabel!
     
     var data:[Order]?
     var indexPage = 0
@@ -36,10 +37,12 @@ class JobViewController: UIViewController {
     func updateData(){
         txtDiemNhan.text = data![indexPage].pickup?.address
         txtDiemGiao.text = data![indexPage].dropoff?.address
-        txtKhoangCach.text = "Khoảng cách: \((data![indexPage].distance)!)Km"
+        txtKhoangCach.text = "Khoảng cách: \((data![indexPage].distance)!)Km.           Khối lượng: \((data![indexPage].weight)!)Kg"
+        txtThoigian.text = "Giá trị: \((data![indexPage].money_first)!)đ    Phí Ship: \((data![indexPage].fee)!)đ"
         let count:Int = (data?.count)!
         navi.title = "\(indexPage+1)/\(count)"
         MaDon = data![indexPage].order_id!
+        
     }
     
     override func viewDidLoad() {

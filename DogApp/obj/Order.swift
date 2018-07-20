@@ -7,15 +7,6 @@
 //
 
 import Foundation
-//"response": [
-//{
-//"id": "503",
-//"hero_id": "16",
-//"customer_id": "0",
-//"message": "m",
-//"created_time": "08:19, 14-07-2018",
-//"status": "2"
-//},
 
 struct Order:Codable{
     let order_id:String?
@@ -39,6 +30,7 @@ struct Order:Codable{
     let update_time:String?
     let status_name:String?
     let time_working_request:String?
+    let weight:String?
     let pickup:pickup?
     let dropoff:dropoff?
     let service:String?

@@ -11,6 +11,8 @@ import Alamofire
 import CoreLocation
 
 class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate{
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
@@ -25,7 +27,8 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
        
         cell.nhanhang.tag = indexPath.row
         if(data[indexPath.row].status == "5"){
-            cell.nhanhang.backgroundColor = UIColor.green
+            // Đã nhận
+            cell.nhanhang.backgroundColor = UIColor.blue
             cell.nhanhang.setTitle("Đã Nhận", for: .normal)
         }else{
             cell.nhanhang.addTarget(self, action: #selector(self.nhanhang(_:)), for: .touchUpInside)
@@ -201,7 +204,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
         ]
         Alamofire.request("http://shipx.vn/api/index.php/OrderSuccess/?hero_id=\(hero_id)&order_id=\(order_id)&lat=\(lat)&long=\(lng)",headers: headers).responseJSON {(response) in
             
-            let Value = response.result.value as! NSDictionary
+            let Value = response.result.value as! NSDictionary 
             let Status = Value["status"] as! String
             let response = Value["response"] as! String
             
@@ -222,7 +225,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
             "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetWorking/?hero_id=\(heroID)&service=3&status=2&start_date=21-06-2018&end_date=30-07-2018&start=0",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetWorking/?hero_id=\(heroID)&service=3&status=2&start_date=\(DateWorking)&end_date=\(DateWorking)&start=0",headers: headers).responseJSON {(response) in
             
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String
@@ -272,9 +275,21 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loadWorking()
+        
         // Do any additional setup after loading the view.
     }
-
+//    func loadDate(){
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = NSLocale(localeIdentifier: "el_GR") as Locale
+//        dateFormatter.dateStyle = DateFormatter.Style.long
+//        let currentDate = NSDate()
+//        dateFormatter.dateFormat = "dd/MM/yyyy"
+//        let convertedDate = dateFormatter.string(from: currentDate as Date)
+//        print(convertedDate)
+//        DateWorking = convertedDate
+//
+//    }
 
 }

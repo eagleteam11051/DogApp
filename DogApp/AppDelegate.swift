@@ -15,6 +15,7 @@ import GoogleMaps
 import GooglePlaces
 import CoreData
 //import MessagingDelegate
+@available(iOS 10.0, *)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     static var mangedObjectContext: NSManagedObjectContext?
@@ -224,6 +225,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 }
 // [END ios_10_message_handling]
 
+@available(iOS 10.0, *)
 extension AppDelegate  {
     // [START refresh_token]
     

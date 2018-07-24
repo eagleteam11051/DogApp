@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A1BF395F1D6A8CF863645C9 /* Pods_DogApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA0282CFEE01BF4DC6C183D /* Pods_DogApp.framework */; };
+		840CDD9C21071B4D00C269D8 /* ChiTietThongBao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CDD9B21071B4D00C269D8 /* ChiTietThongBao.swift */; };
 		8431A83620EBCBA800FABF07 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431A83520EBCBA800FABF07 /* HomePageViewController.swift */; };
 		8446ED9420ECCFD4002C87A8 /* a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446ED9320ECCFD4002C87A8 /* a.swift */; };
 		8446ED9820ED0A1C002C87A8 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446ED9720ED0A1C002C87A8 /* GoogleMapViewController.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		0CA0282CFEE01BF4DC6C183D /* Pods_DogApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33493299B8433FE86F3196B4 /* Pods-DogApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DogApp/Pods-DogApp.release.xcconfig"; sourceTree = "<group>"; };
+		840CDD9B21071B4D00C269D8 /* ChiTietThongBao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChiTietThongBao.swift; sourceTree = "<group>"; };
 		8431A83520EBCBA800FABF07 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		8446ED9320ECCFD4002C87A8 /* a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a.swift; sourceTree = "<group>"; };
 		8446ED9720ED0A1C002C87A8 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				84E1555A20F84EFF00F0F807 /* job2.swift */,
 				84BB7F0420F3696C007A5AC5 /* job.swift */,
+				840CDD9B21071B4D00C269D8 /* ChiTietThongBao.swift */,
 				8431A83520EBCBA800FABF07 /* HomePageViewController.swift */,
 				84709DB620FB82C800E4007E /* Thongbao.swift */,
 				844E346E20F257AC00A73DE1 /* JobWaitingViewController.swift */,
@@ -474,6 +477,7 @@
 				84E1556820F8A3F400F0F807 /* ChiTietCongViec.swift in Sources */,
 				844E346F20F257AC00A73DE1 /* JobWaitingViewController.swift in Sources */,
 				8431A83620EBCBA800FABF07 /* HomePageViewController.swift in Sources */,
+				840CDD9C21071B4D00C269D8 /* ChiTietThongBao.swift in Sources */,
 				84709DB720FB82C800E4007E /* Thongbao.swift in Sources */,
 				84E1555B20F84EFF00F0F807 /* job2.swift in Sources */,
 				84E1555F20F85A6B00F0F807 /* WorkingCell.swift in Sources */,

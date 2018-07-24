@@ -33,6 +33,12 @@ class Thongbao: UIViewController,UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let chitietthongbao = storyboard?.instantiateViewController(withIdentifier: "chitietthongbao") as! ChiTietThongBao
+        
+        chitietthongbao.thongBao = data[indexPath.row]
+        self.present(chitietthongbao, animated: true, completion: nil)
+    }
     @IBAction func btnBack(_ sender: Any) {
         let jobWaiting = self.storyboard?.instantiateViewController(withIdentifier: "homepage")
         self.present(jobWaiting!, animated: true, completion: nil)

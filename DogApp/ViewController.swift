@@ -29,10 +29,25 @@ class ViewController: UIViewController {
         tokenfb = getCache(key: "tokenfb") ?? ""
         mail1 = getCache(key: "mail") ?? ""
         pass1 = getCache(key: "pass") ?? ""
+        if CheckInternet.Connection(){
         if(getCache(key: "mail") != nil && getCache(key: "pass") != nil){
             login(mail: getCache(key: "mail")!, pass: getCache(key: "pass")!)
         }
-        
+        }else{
+            let alertController = UIAlertController(title: "Thông Báo", message: "Máy bạn hiện không có kết nối Internet vui lòng bật dữ liệu mạng và thử lại.", preferredStyle: .alert)
+            
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+                NSLog("OK Pressed")
+                
+            }
+            
+            // Add the actions
+            alertController.addAction(okAction)
+            // Present the controller
+            self.present(alertController, animated: true, completion: nil)
+        }
         
 
         
@@ -84,7 +99,24 @@ class ViewController: UIViewController {
         let alert = SCLAlertView(appearance: appearance).showWait("Đang đăng nhập", subTitle: "Vui lòng chờ...", closeButtonTitle: nil, timeout: nil, colorStyle: nil, colorTextButton: 0x3f4449, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             alert.close()
-            self.login(mail: mail, pass: pass)
+            if CheckInternet.Connection(){
+                self.login(mail: mail, pass: pass)
+            }else{
+                let alertController = UIAlertController(title: "Thông Báo", message: "Máy bạn hiện không có kết nối Internet vui lòng bật dữ liệu mạng và thử lại.", preferredStyle: .alert)
+                
+                
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    NSLog("OK Pressed")
+                    
+                }
+                
+                // Add the actions
+                alertController.addAction(okAction)
+                // Present the controller
+                self.present(alertController, animated: true, completion: nil)
+            }
+            
         //let dn:String = (order?.pickup?.address!)!
         //diemnhan.text = "Điểm Nhận: \(dn)"
         }

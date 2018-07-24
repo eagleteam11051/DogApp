@@ -26,8 +26,10 @@ struct Order:Codable{
     let cleaning_time:String?
     let service_id:String?
     let hero_id:String?
+    let phone_number: String?
     let customer_id:String?
     let update_time:String?
+    let create_time_int:String?
     let status_name:String?
     let time_working_request:String?
     let weight:String?

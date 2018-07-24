@@ -48,7 +48,6 @@ class JobWaitingViewController: UIViewController, UITableViewDataSource, UITable
                     self.tableview.reloadData()
                 }
             }
-            
         }
     }
     

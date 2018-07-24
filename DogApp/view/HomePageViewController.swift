@@ -54,6 +54,7 @@ class HomePageViewController: UIViewController,CLLocationManagerDelegate {
                 diachi = Response["address"] as? String ?? " "
                 linkima = Response["image"] as? String ?? " "
                 tokenlogin = Response["token"] as? String ?? " "
+                sdt = Response["mobile"] as? String ?? " "
                 print(tokenlogin)
             }
             
@@ -102,7 +103,7 @@ class HomePageViewController: UIViewController,CLLocationManagerDelegate {
         loadDate()
         txtName.text = name
         txtHeroID.text = heroID
-        txtTaiKhoan.text = tien
+        txtTaiKhoan.text = "\(tien)đ"
         txtDiaChi.text = diachi
         print(linkima)
         let url:URL = URL(string: linkima)!

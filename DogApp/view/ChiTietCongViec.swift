@@ -10,8 +10,19 @@ import UIKit
 
 
 class ChiTietCongViec: UIViewController {
-
-    var seconds = 10
+    func time(){
+        let timeInterval = NSDate().timeIntervalSince1970
+        print(timeInterval)
+        //create_time_int
+        let timeDat: String = (order?.create_time_int!)!
+        let time = Int(timeDat)! - Int(timeInterval)
+        let time1 = Int(timeInterval) - Int(timeDat)!
+        print(timeDat)
+        seconds = time
+        print(time)
+        print(time1)
+    }
+    var seconds: Int = 0
     var timer = Timer()
     var isTimerRunning = false
     var resumeTapped = false
@@ -33,6 +44,7 @@ class ChiTietCongViec: UIViewController {
     @IBOutlet weak var diemgiao: UILabel!
     @IBOutlet weak var khoangcach: UILabel!
     @IBOutlet weak var sodienthoai: UILabel!
+    @IBOutlet weak var sdtnguoinhan: UILabel!
     @IBOutlet weak var yeucau: UILabel!
     @IBOutlet weak var tienthuho: UILabel!
     @IBOutlet weak var Tongtien: UILabel!
@@ -46,6 +58,8 @@ class ChiTietCongViec: UIViewController {
         diemgiao.text = "Điểm Giao: \(dg)"
         let kc:String = (order?.distance!)!
         khoangcach.text = "Khoảng Cách: \(kc) Km"
+        let sdtnn:String = (order?.phone_number ?? "null")!
+        sdtnguoinhan.text = "SDT Người Nhận: \(sdtnn)"
         let sdt:String = (order?.pickup?.mobile ?? "null")!
         sodienthoai.text = "Số Điện Thoại: \(sdt)"
         let yc:String = (order?.note!)!
@@ -57,6 +71,7 @@ class ChiTietCongViec: UIViewController {
         Tongtien.text = "Tổng tiền: \(tongtien)đ"
         // Do any additional setup after loading the view.
         runTimer()
+        time()
     }
     
     var order:Order?

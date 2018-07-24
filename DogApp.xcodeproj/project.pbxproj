@@ -41,6 +41,7 @@
 		84E7387A20EB6FEC00D4DFB0 /* DogAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7387920EB6FEC00D4DFB0 /* DogAppTests.swift */; };
 		84E7388520EB6FEC00D4DFB0 /* DogAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7388420EB6FEC00D4DFB0 /* DogAppUITests.swift */; };
 		84F21F7120EF1E62003FBA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F21F7020EF1E61003FBA75 /* GoogleService-Info.plist */; };
+		84FC425021062764008AA4BA /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC424F21062763008AA4BA /* CheckInternet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		84E7388620EB6FEC00D4DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84F21F7020EF1E61003FBA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84F21F7320EF7CE2003FBA75 /* DogApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogApp.entitlements; sourceTree = "<group>"; };
+		84FC424F21062763008AA4BA /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInternet.swift; path = ../../Downloads/CheckInternet/CheckInternet.swift; sourceTree = "<group>"; };
 		BE7F3CFDD30A69C2AA4F5C84 /* Pods-DogApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogApp/Pods-DogApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,8 +144,8 @@
 				844E346E20F257AC00A73DE1 /* JobWaitingViewController.swift */,
 				8467C6C320F74A19002F6436 /* JobWorkingViewController.swift */,
 				84A0E96720F4BB9E00AA7351 /* JobViewController.swift */,
-				84E1555C20F851AC00F0F807 /* Working.swift */,
 				84E1556720F8A3F400F0F807 /* ChiTietCongViec.swift */,
+				84E1555C20F851AC00F0F807 /* Working.swift */,
 				84E1556920F8A48C00F0F807 /* BanDoCongViec.swift */,
 				84E1556B20F8A89100F0F807 /* NaviBanDo.swift */,
 				84E1556D20F90BEC00F0F807 /* history.swift */,
@@ -180,6 +182,7 @@
 		84E7385820EB6FE500D4DFB0 = {
 			isa = PBXGroup;
 			children = (
+				84FC424F21062763008AA4BA /* CheckInternet.swift */,
 				84E7386320EB6FE500D4DFB0 /* DogApp */,
 				84E7387820EB6FEC00D4DFB0 /* DogAppTests */,
 				84E7388320EB6FEC00D4DFB0 /* DogAppUITests */,
@@ -489,6 +492,7 @@
 				84A0E96820F4BB9E00AA7351 /* JobViewController.swift in Sources */,
 				8467C6C420F74A19002F6436 /* JobWorkingViewController.swift in Sources */,
 				84E1557220F90CA400F0F807 /* HistoryCell.swift in Sources */,
+				84FC425021062764008AA4BA /* CheckInternet.swift in Sources */,
 				84E1556620F897AF00F0F807 /* Net.swift in Sources */,
 				84E7386720EB6FE600D4DFB0 /* ViewController.swift in Sources */,
 				845AF8C120F9977B00CAB5E1 /* NaviTimViec.swift in Sources */,
@@ -672,7 +676,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -693,7 +697,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

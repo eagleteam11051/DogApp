@@ -9,9 +9,10 @@
 import UIKit
 import Alamofire
 import CoreLocation
+import MessageUI
+import SCLAlertView
 
-class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate{
-    
+class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLocationManagerDelegate, MFMessageComposeViewControllerDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -19,17 +20,18 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
+    var a: Int = 0
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "workingcell", for: indexPath) as! WorkingCell
         cell.note.text = data[indexPath.row].description
         cell.time.text = data[indexPath.row].create_time
-       
+       a = indexPath.row
         cell.nhanhang.tag = indexPath.row
         if(data[indexPath.row].status == "5"){
             // Đã nhận
             cell.nhanhang.backgroundColor = UIColor.blue
             cell.nhanhang.setTitle("Đã Nhận", for: .normal)
+         //   print("xin====================chao")
         }else{
             cell.nhanhang.addTarget(self, action: #selector(self.nhanhang(_:)), for: .touchUpInside)
         }
@@ -166,22 +168,63 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     var mode = 1
     let locationManager = CLLocationManager()
     var update = false
-
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func requestNhanHang(hero_id:String,order_id:String,lat:String,lng:String){
         let headers: HTTPHeaders = [
             "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
+        let test = "http://shipx.vn/api/index.php/VinterWoking/?hero_id=\(hero_id)&order_id=\(order_id)&lat=\(lat)&long=\(lng)"
+        print(test)
         Alamofire.request("http://shipx.vn/api/index.php/VinterWoking/?hero_id=\(hero_id)&order_id=\(order_id)&lat=\(lat)&long=\(lng)",headers: headers).responseJSON {(response) in
             
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String
             let response = Value["response"] as? Any
             print("res",response)
-            
+//            let thuho = Int(self.data[self.a].fee!)!
+//            print(thuho)
+//            let tongtien = Int(self.data[self.a].fee!)! + Int (self.data[self.a].money_first!)!
+//            let  khoangcach = self.data[self.a].distance
             if(Status == "success"){
-                showAlert(msg: "Cập nhật trạng thái đơn hàng thành công", view: self)
+                let alertController = UIAlertController(title: "Thông Báo", message: "Cập nhật trạng thái đơn hàng thành công", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    NSLog("OK Pressed")
+                    let appearance = SCLAlertView.SCLAppearance(
+                        showCloseButton: false
+                    )
+                    let alert = SCLAlertView(appearance: appearance).showWait("Đang chuyển trang", subTitle: "Vui lòng chờ...", closeButtonTitle: nil, timeout: nil, colorStyle: nil, colorTextButton: 0x3f4449, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                        alert.close()
+                        
+                    }
+                    if MFMessageComposeViewController.canSendText(){
+                        let controller = MFMessageComposeViewController()
+                        //*SMS1: [param0] bat đau di [param1], voi khoang cach la [x km], tong phi ship + tien hang la: [x vnd + y vnd], quy khach luon mo dien thoai và chuan bi tien thanh toan. Xin cam on!
+                      //  let khoangcach = data[indexPath.row]
+                        controller.body = "Shiper bắt đầu đi giao hàng, với khoảng cách là: \(self.data[self.a].distance!)Km, tổng phí ship + tiền hàng là: \(self.data[self.a].total!)đ, Phiền quý khách luôn mở điện thoại để không bỏ lỡ đơn hàng. Xin cam on!"
+                        let number = self.data[self.a].phone_number ?? ""
+                        if(number.count>0){
+                            controller.recipients = ["\(self.data[self.a].phone_number!)"]
+                            controller.messageComposeDelegate = self
+                            self.present(controller,animated: true, completion: nil)
+                            print("oke=====================")
+                        }else{
+                            print("loi=====================")
+                        }
+                    }else{
+                        print("loi=====================")
+                    }
+                }
+//                alertController.addAction(action1)
+//                self.present(alertController, animated: true, completion: nil)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
             }else{
                 if let stringResults = response as? String {
                     // obj is a string array. Do something with stringArray
@@ -225,7 +268,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
             "X-API-KEY": "\(tokenlogin)",
             "Accept": "application/json"
         ]
-        Alamofire.request("http://shipx.vn/api/index.php/VinterGetWorking/?hero_id=\(heroID)&service=3&status=2&start_date=\(DateWorking)&end_date=\(DateWorking)&start=0",headers: headers).responseJSON {(response) in
+        Alamofire.request("http://shipx.vn/api/index.php/VinterGetWorking/?hero_id=\(heroID)&service=3&status=2&start_date=20-07-2018&end_date=\(DateWorking)&start=0",headers: headers).responseJSON {(response) in
             
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String

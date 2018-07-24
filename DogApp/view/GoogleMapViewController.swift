@@ -71,6 +71,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
                 Distance = item["distance"] as! String
                 let dropoff = item["dropoff"] as! [String: Any]
                 AddressGiao = dropoff["address"]! as! String
+                create_time_int = item["create_time_int"]! as! String
                 //print("DiemGiao",AddressGiao)
                 LatitudeGiao = dropoff["latitude"]! as! String
                 // print(LatitudeGiao)
@@ -97,6 +98,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
                 market.snippet = AddressGiao
                 market.title = AddressNhan
                 market.map = self.mapView
+                market.accessibilityHint = create_time_int
                 market.icon = UIImage(named: "bike")
                 do{
                     let jsonData = try? JSONSerialization.data(withJSONObject: item, options: [])
@@ -139,6 +141,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
         DiemNhan = marker.title!
         DiemGiao = marker.snippet!
         MaDon = marker.accessibilityValue!
+        thoiGiancon = marker.accessibilityHint!
         print(DiemNhan)
         print(DiemGiao)
         let jobView = self.storyboard?.instantiateViewController(withIdentifier: "jobview") as! JobViewController

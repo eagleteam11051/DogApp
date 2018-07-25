@@ -131,7 +131,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
-            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+            if let url = URL(string: UIApplication.openSettingsURLString) {
 //                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -192,7 +192,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
 //            let  khoangcach = self.data[self.a].distance
             if(Status == "success"){
                 let alertController = UIAlertController(title: "Thông Báo", message: "Cập nhật trạng thái đơn hàng thành công", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
                     UIAlertAction in
                     NSLog("OK Pressed")
                     let appearance = SCLAlertView.SCLAppearance(

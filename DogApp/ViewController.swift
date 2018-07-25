@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             let alertController = UIAlertController(title: "Thông Báo", message: "Máy bạn hiện không có kết nối Internet vui lòng bật dữ liệu mạng và thử lại.", preferredStyle: .alert)
             
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
                 UIAlertAction in
                 NSLog("OK Pressed")
                 
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
                 let alertController = UIAlertController(title: "Thông Báo", message: "Máy bạn hiện không có kết nối Internet vui lòng bật dữ liệu mạng và thử lại.", preferredStyle: .alert)
                 
                 
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
                     UIAlertAction in
                     NSLog("OK Pressed")
                     

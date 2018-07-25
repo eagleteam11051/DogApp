@@ -21,6 +21,8 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
     @IBOutlet weak var txtThoigian: UILabel!
     @IBOutlet weak var txtKhoiLuong: UILabel!
     @IBOutlet weak var txtPhiship: UILabel!
+    @IBOutlet weak var txtMota: UILabel!
+    @IBOutlet weak var txtGhichu: UILabel!
     
     func time(){
         let timeInterval = NSDate().timeIntervalSince1970
@@ -58,6 +60,8 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
     }
     
     func updateData(){
+        txtMota.text = "Mô tả: \((data![indexPage].description)!)"
+        txtGhichu.text = "Ghi Chú: \((data![indexPage].note)!)"
         txtDiemNhan.text = data![indexPage].pickup?.address
         txtDiemGiao.text = data![indexPage].dropoff?.address
         txtKhoangCach.text = "Khoảng cách: \((data![indexPage].distance)!)Km"
@@ -103,7 +107,8 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
         let alertController = UIAlertController(title: "Thông Báo", message: msg, preferredStyle: .alert)
         
         // Create the actions
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+        //let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
             UIAlertAction in
             NSLog("OK Pressed")
 //            let googleMap = self.storyboard?.instantiateViewController(withIdentifier: "googlemap")
@@ -145,7 +150,7 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
             if(Status == "success"){
                  let Mobile = Value["phone_number"] as! String
                 let alertController = UIAlertController(title: "Thông Báo", message: "Bạn đã đặt lịch thành công, Điện thoại của bạn sẽ gửi một tin nhắn đến khách hàng", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
                     UIAlertAction in
                     NSLog("OK Pressed")
                     let appearance = SCLAlertView.SCLAppearance(

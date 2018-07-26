@@ -58,9 +58,9 @@ class ChiTietCongViec: UIViewController {
         diemgiao.text = "Điểm Giao: \(dg)"
         let kc:String = (order?.distance!)!
         khoangcach.text = "Khoảng Cách: \(kc) Km"
-        let sdtnn:String = (order?.phone_number ?? "null")!
+        let sdtnn:String = (order?.phone_number ?? "Trống")!
         sdtnguoinhan.text = "SDT Người Nhận: \(sdtnn)"
-        let sdt:String = (order?.pickup?.mobile ?? "null")!
+        let sdt:String = (order?.pickup?.mobile ?? "Trống")!
         sodienthoai.text = "Số Điện Thoại: \(sdt)"
         let yc:String = (order?.note!)!
         yeucau.text = "Yêu Cầu: \(yc)"
@@ -74,7 +74,7 @@ class ChiTietCongViec: UIViewController {
         time()
     }
     @IBAction func btnSDT(_ sender: Any) {
-        let sdt:String = (order?.pickup?.mobile ?? "null")!
+        let sdt:String = (order?.pickup?.mobile ?? "Trống")!
        
         if #available(iOS 10.0, *) {
             
@@ -87,7 +87,7 @@ class ChiTietCongViec: UIViewController {
     }
     
     @IBAction func btnSDTN(_ sender: Any) {
-         let sdtnn:String = (order?.phone_number ?? "null")!
+         let sdtnn:String = (order?.phone_number ?? "Trống")!
         if #available(iOS 10.0, *) {
             let phonenumber = URL(string:"tel:" + sdtnn )
             UIApplication.shared.open(phonenumber!)

@@ -147,6 +147,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     @objc func nhanhang(_ sender: UIButton){
         mode = 1
         let buttonTag = sender.tag
+        self.a = buttonTag
         order_id = data[buttonTag].order_id!
         print("tag:",data[buttonTag].hero_id!)
         update = true
@@ -155,6 +156,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
     @objc func giaohang(_ sender: UIButton){
         mode = 2
         let buttonTag = sender.tag
+        self.a = buttonTag
         order_id = data[buttonTag].order_id!
         print("tag:",data[buttonTag].hero_id!)
         update = true

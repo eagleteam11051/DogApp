@@ -39,7 +39,6 @@
 		84E7386A20EB6FE600D4DFB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E7386820EB6FE600D4DFB0 /* Main.storyboard */; };
 		84E7386C20EB6FEB00D4DFB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E7386B20EB6FEB00D4DFB0 /* Assets.xcassets */; };
 		84E7386F20EB6FEB00D4DFB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E7386D20EB6FEB00D4DFB0 /* LaunchScreen.storyboard */; };
-		84E7387A20EB6FEC00D4DFB0 /* DogAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7387920EB6FEC00D4DFB0 /* DogAppTests.swift */; };
 		84E7388520EB6FEC00D4DFB0 /* DogAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E7388420EB6FEC00D4DFB0 /* DogAppUITests.swift */; };
 		84F21F7120EF1E62003FBA75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F21F7020EF1E61003FBA75 /* GoogleService-Info.plist */; };
 		84FC425021062764008AA4BA /* CheckInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FC424F21062763008AA4BA /* CheckInternet.swift */; };
@@ -99,14 +98,12 @@
 		84E7386E20EB6FEB00D4DFB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84E7387020EB6FEB00D4DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E7387520EB6FEC00D4DFB0 /* DogAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		84E7387920EB6FEC00D4DFB0 /* DogAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAppTests.swift; sourceTree = "<group>"; };
-		84E7387B20EB6FEC00D4DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84E7388020EB6FEC00D4DFB0 /* DogAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E7388420EB6FEC00D4DFB0 /* DogAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAppUITests.swift; sourceTree = "<group>"; };
 		84E7388620EB6FEC00D4DFB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84F21F7020EF1E61003FBA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84F21F7020EF1E61003FBA75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84F21F7320EF7CE2003FBA75 /* DogApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DogApp.entitlements; sourceTree = "<group>"; };
-		84FC424F21062763008AA4BA /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInternet.swift; path = ../../Downloads/CheckInternet/CheckInternet.swift; sourceTree = "<group>"; };
+		84FC424F21062763008AA4BA /* CheckInternet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckInternet.swift; path = DogApp/CheckInternet.swift; sourceTree = "<group>"; };
 		BE7F3CFDD30A69C2AA4F5C84 /* Pods-DogApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DogApp/Pods-DogApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,7 +184,6 @@
 			children = (
 				84FC424F21062763008AA4BA /* CheckInternet.swift */,
 				84E7386320EB6FE500D4DFB0 /* DogApp */,
-				84E7387820EB6FEC00D4DFB0 /* DogAppTests */,
 				84E7388320EB6FEC00D4DFB0 /* DogAppUITests */,
 				84E7386220EB6FE500D4DFB0 /* Products */,
 				B81E0BE90F15121BAB23B8BB /* Pods */,
@@ -222,15 +218,6 @@
 				84E7387020EB6FEB00D4DFB0 /* Info.plist */,
 			);
 			path = DogApp;
-			sourceTree = "<group>";
-		};
-		84E7387820EB6FEC00D4DFB0 /* DogAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				84E7387920EB6FEC00D4DFB0 /* DogAppTests.swift */,
-				84E7387B20EB6FEC00D4DFB0 /* Info.plist */,
-			);
-			path = DogAppTests;
 			sourceTree = "<group>";
 		};
 		84E7388320EB6FEC00D4DFB0 /* DogAppUITests */ = {
@@ -510,7 +497,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E7387A20EB6FEC00D4DFB0 /* DogAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +707,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -742,6 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -762,6 +750,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -782,6 +771,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SQ6JB49KXQ;
 				INFOPLIST_FILE = DogAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

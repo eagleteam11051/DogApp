@@ -189,7 +189,7 @@ class HomePageViewController: UIViewController,CLLocationManagerDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
-            if let url = URL(string: UIApplication.openSettingsURLString) {
+            if let url = URL(string:UIApplicationOpenSettingsURLString) {
 //                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -211,7 +211,7 @@ class HomePageViewController: UIViewController,CLLocationManagerDelegate {
         ]
         Alamofire.request("http://shipx.vn/api/index.php/VinterSendGeoLocation/?hero_id=\(heroID)&latitude=\(lat)&longitude=\(lng)",headers: headers).responseJSON {(response) in
             let Value = response.result.value as! NSDictionary
-            let Status = Value["status"]
+           // let Status = Value["status"]
             //let Response = Value["response"] as! [[String: Any]]
             
             //            print("response",Status)

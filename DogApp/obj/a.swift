@@ -36,7 +36,7 @@ var thoiGiancon: String = " "
 var soTrang: Int = 0
 func showAlert(msg:String,view:UIViewController){
     let alertController = UIAlertController(title: "Thông Báo", message: msg, preferredStyle: .alert)
-    let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+    let okAction = UIAlertAction(title: "OK", style: .default) {
         UIAlertAction in
         NSLog("OK Pressed")
     }

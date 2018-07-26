@@ -36,7 +36,7 @@ class JobWorkingViewController: UIViewController,UITableViewDataSource,UITableVi
             
             
             if(Status == "success"){
-                let a = Status.count
+//                let a = Status.count
                 let res = Value["response"] as! [[String: Any]]
                 for item in res{
                     

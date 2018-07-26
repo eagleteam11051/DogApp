@@ -93,12 +93,14 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
             timerLabel.textColor = UIColor.blue
         }
     }
+    
     func timeString(time:TimeInterval) -> String {
         let hours = Int(time) / 3600
         let minutes = Int(time) / 60 % 60
         let seconds = Int(time) % 60
         return String(format:"⏰ %02i:%02i", hours, minutes, seconds)
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         updateData()
     }
@@ -108,7 +110,7 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
         
         // Create the actions
         //let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+        let okAction = UIAlertAction(title: "OK", style:.default) {
             UIAlertAction in
             NSLog("OK Pressed")
 //            let googleMap = self.storyboard?.instantiateViewController(withIdentifier: "googlemap")
@@ -150,7 +152,7 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
             if(Status == "success"){
                  let Mobile = Value["phone_number"] as! String
                 let alertController = UIAlertController(title: "Thông Báo", message: "Bạn đã đặt lịch thành công, Điện thoại của bạn sẽ gửi một tin nhắn đến khách hàng", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                let okAction = UIAlertAction(title: "OK", style: .default) {
                     UIAlertAction in
                     NSLog("OK Pressed")
                     let appearance = SCLAlertView.SCLAppearance(
@@ -183,6 +185,7 @@ class JobViewController: UIViewController,MFMessageComposeViewControllerDelegate
         
         
 }
+    
     @IBAction func btnTuChoi(_ sender: UIButton) {
         //http://shipx.vn/api/index.php/VinterRemoveOrder/?order_id=567&hero_id=16
         

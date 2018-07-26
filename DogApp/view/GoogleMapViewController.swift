@@ -172,7 +172,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
     func addSub(){
         let chucNangTren = storyboard!.instantiateViewController(withIdentifier: "navitimviec") as? NaviTimViec
         chucNangTren?.dele = self
-        self.addChild(chucNangTren!)
+        self.addChildViewController(chucNangTren!)
         var fra:CGRect
         if(self.view.frame.height>800){
             fra = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 50)
@@ -182,7 +182,7 @@ class GoogleMapViewController: UIViewController,CLLocationManagerDelegate, GMSMa
         
         chucNangTren?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
         self.view.addSubview((chucNangTren?.view)!)
-        chucNangTren?.didMove(toParent: self)
+        chucNangTren?.didMove(toParentViewController: self)
         //duoi
     }
     

@@ -63,7 +63,7 @@ navi{
     func addSub(){
         let chucNangTren = storyboard!.instantiateViewController(withIdentifier: "navibando") as? NaviBanDo
         chucNangTren?.dele = self
-        self.addChild(chucNangTren!)
+        self.addChildViewController(chucNangTren!)
         var fra:CGRect
         if(self.view.frame.height>800){
             fra = CGRect(x: 0, y: 20, width: self.view.frame.width, height: 50)
@@ -73,7 +73,7 @@ navi{
         
         chucNangTren?.view.frame = fra// or better, turn off `translatesAutoresizingMaskIntoConstraints` and then define constraints for this subview
         self.view.addSubview((chucNangTren?.view)!)
-        chucNangTren?.didMove(toParent: self)
+        chucNangTren?.didMove(toParentViewController: self)
         //duoi
     }
 

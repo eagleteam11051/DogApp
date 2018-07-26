@@ -73,7 +73,29 @@ class ChiTietCongViec: UIViewController {
         runTimer()
         time()
     }
+    @IBAction func btnSDT(_ sender: Any) {
+        let sdt:String = (order?.pickup?.mobile ?? "null")!
+       
+        if #available(iOS 10.0, *) {
+            
+           let phonenumber = URL(string:"tel:" + sdt)
+            UIApplication.shared.open(phonenumber!)
+        } else {
+            var url: NSURL = NSURL(string:"tel://" + sdt)!
+            UIApplication.shared.openURL(url as URL)
+        }
+    }
     
+    @IBAction func btnSDTN(_ sender: Any) {
+         let sdtnn:String = (order?.phone_number ?? "null")!
+        if #available(iOS 10.0, *) {
+            let phonenumber = URL(string:"tel:" + sdtnn )
+            UIApplication.shared.open(phonenumber!)
+        } else {
+            var url: NSURL = NSURL(string:"tel://" + sdtnn)!
+            UIApplication.shared.openURL(url as URL)
+        }
+    }
     var order:Order?
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(ChiTietCongViec.updateTimer)), userInfo: nil, repeats: true)

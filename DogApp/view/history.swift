@@ -42,7 +42,7 @@ class history: UIViewController,UITableViewDataSource,UITableViewDelegate {
             
             
             if(Status == "success"){
-                let a = Status.count
+//                let a = Status.count
                 let res = Value["response"] as! [[String: Any]]
                 self.data.removeAll()
                 for item in res{

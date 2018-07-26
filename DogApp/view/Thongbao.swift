@@ -12,7 +12,7 @@ class Thongbao: UIViewController,UITableViewDataSource, UITableViewDelegate {
     
     func showAlert1(msg:String,view:UIViewController){
         let alertController = UIAlertController(title: "Thông Báo", message: msg, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+        let okAction = UIAlertAction(title: "OK", style:.default) {
             UIAlertAction in
             NSLog("OK Pressed")
             self.dismiss(animated: true, completion: nil)
@@ -76,7 +76,7 @@ class Thongbao: UIViewController,UITableViewDataSource, UITableViewDelegate {
             let Value = response.result.value as! NSDictionary
             let Status = Value["status"] as! String
             if(Status == "success"){
-                let a = Status.count
+                
                 let res = Value["response"] as! [[String: Any]]
                 self.data.removeAll()
                 for item in res{

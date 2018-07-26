@@ -131,7 +131,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
-            if let url = URL(string: UIApplication.openSettingsURLString) {
+            if let url = URL(string:UIApplicationOpenSettingsURLString) {
 //                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -192,7 +192,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
 //            let  khoangcach = self.data[self.a].distance
             if(Status == "success"){
                 let alertController = UIAlertController(title: "Thông Báo", message: "Cập nhật trạng thái đơn hàng thành công", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                let okAction = UIAlertAction(title: "OK", style: .default) {
                     UIAlertAction in
                     NSLog("OK Pressed")
                     let appearance = SCLAlertView.SCLAppearance(
@@ -226,7 +226,8 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
             }else{
-                if let stringResults = response as? String {
+              //  if let stringResults = response as? String {
+                if (response as? String) != nil {
                     // obj is a string array. Do something with stringArray
                     showAlert(msg: response as! String, view: self)
                 }else{
@@ -275,7 +276,7 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
             
             
             if(Status == "success"){
-                let a = Status.count
+//                let a = Status.count
                 let res = Value["response"] as! [[String: Any]]
                 self.data.removeAll()
                 for item in res{
@@ -320,19 +321,6 @@ class Working: UIViewController ,UITableViewDataSource,UITableViewDelegate,CLLoc
         super.viewDidLoad()
         
         loadWorking()
-        
-        // Do any additional setup after loading the view.
     }
-//    func loadDate(){
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = NSLocale(localeIdentifier: "el_GR") as Locale
-//        dateFormatter.dateStyle = DateFormatter.Style.long
-//        let currentDate = NSDate()
-//        dateFormatter.dateFormat = "dd/MM/yyyy"
-//        let convertedDate = dateFormatter.string(from: currentDate as Date)
-//        print(convertedDate)
-//        DateWorking = convertedDate
-//
-//    }
 
 }

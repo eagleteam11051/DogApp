@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             let alertController = UIAlertController(title: "Thông Báo", message: "Máy bạn hiện không có kết nối Internet vui lòng bật dữ liệu mạng và thử lại.", preferredStyle: .alert)
             
             
-            let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+            let okAction = UIAlertAction(title: "OK", style:.default) {
                 UIAlertAction in
                 NSLog("OK Pressed")
                 
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
             showCloseButton: false
         )
         let alert = SCLAlertView(appearance: appearance).showWait("Đang đăng nhập", subTitle: "Vui lòng chờ...", closeButtonTitle: nil, timeout: nil, colorStyle: nil, colorTextButton: 0x3f4449, circleIconImage: nil, animationStyle: SCLAnimationStyle.topToBottom)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             alert.close()
             if CheckInternet.Connection(){
                 self.login(mail: mail, pass: pass)
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
                 let alertController = UIAlertController(title: "Thông Báo", message: "Máy bạn hiện không có kết nối Internet vui lòng bật dữ liệu mạng và thử lại.", preferredStyle: .alert)
                 
                 
-                let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) {
+                let okAction = UIAlertAction(title: "OK", style:.default) {
                     UIAlertAction in
                     NSLog("OK Pressed")
                     

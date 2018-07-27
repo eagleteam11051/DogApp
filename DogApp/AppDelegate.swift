@@ -219,8 +219,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print full message.
         print(userInfo)
-        
-        completionHandler([.alert])
+        completionHandler()
     }
 }
 // [END ios_10_message_handling]
